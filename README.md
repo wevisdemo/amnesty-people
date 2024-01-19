@@ -1,9 +1,8 @@
-# pension-act
+# amnesty-people 
 
 ## Environment
 
-- Production: https://pension-4all.com/
-  - Continuous deployment from every push to the main branch
+- Production: not deployed yet
 
 ## Stack
 
