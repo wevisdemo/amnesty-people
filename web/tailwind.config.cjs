@@ -1,15 +1,15 @@
 const pension_act = {
-	primary: '#FF5369',
-	'primary-focus': '#FF8993',
-	secondary: '#394494',
-	'secondary-focus': '#5F81C6',
-	accent: '#1A26EA',
-	'accent-focus': '#121BA6',
-	neutral: '#1D1F43',
+	primary: '#76A2DE',
+	'primary-focus': '#9CC3F9',
+	secondary: '#1D478D',
+	'secondary-focus': '#2B63C1',
+	accent: '#FFC524',
+	'accent-focus': '#FFDE83',
+	neutral: '#000000',
 	'base-100': '#FFFFFF',
-	'base-200': '#FFF1EE',
-	'base-300': '#FFD3C9',
-	info: '#ABC4FB',
+	'base-200': '#F2F2F2',
+	'base-300': '#E5E6E6',
+	info: '#FFA8B4',
 };
 
 /** @type {import('tailwindcss').Config} */
