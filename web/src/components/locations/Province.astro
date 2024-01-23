@@ -1,0 +1,21 @@
+---
+import Location, {type Props as LocationProps} from './Location.astro';
+
+interface Props {
+  province: string;
+  locations: LocationProps[];
+}
+
+const {province, locations} = Astro.props
+---
+
+<details class="collapse collapse-arrow rounded-none">
+  <summary class="collapse-title box-border min-h-0 border-t-2 border-t-neutral p-0 pt-2 pb-2 body-02-normal hover:text-secondary-focus hover:border-t-secondary-focus transition-colors">
+    <span class="flex items-center gap-[5px] h-full leading-none"><span class="heading-responsive-01 leading-none">{province}</span> <span>({locations.length} จุด)</span></span>
+  </summary>
+  <div class="collapse-content flex flex-col gap-[26px] !p-0 !pt-[22px]">
+    {locations.map((location) => (
+      <Location {...location} />
+    ))}
+  </div>
+</details>

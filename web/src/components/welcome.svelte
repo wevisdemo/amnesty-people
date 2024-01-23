@@ -57,7 +57,7 @@
 			/>
 			ลงชื่อ
 		</button>
-		<button type="button" class="btn btn-primary w-full body-02-semibold">
+		<a href="/locations" class="btn btn-primary w-full body-02-semibold">
 			<img
 				src="/icons/pin.svg"
 				alt=""
@@ -67,7 +67,7 @@
 				decoding="async"
 			/>
 			ดูสถานที่ลงชื่อ
-		</button>
+		</a>
 		<button type="button" class="btn btn-primary w-full body-02-semibold">
 			<img
 				src="/icons/table.svg"

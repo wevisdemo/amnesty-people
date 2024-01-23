@@ -1,0 +1,53 @@
+---
+import type { Props as LocationProps } from '../components/locations/Location.astro';
+import Province from '../components/locations/Province.astro';
+import Main from '../layouts/main.astro';
+
+const sampleLocations: LocationProps[] = [
+	{
+		name:"(ชื่อสถานที่)สำนักงานใหญ่ก้าวไกล",
+		workingHours:"วัน จ. - ศ. เวลา 08:00-18:00 น.",
+		tel:"081-112-1212",
+		address:"บ้านเลขที่ 1111/3 บ้านกลางเมืองรัชดา-ลาดพร้าว (หลังตรงกลางติดถนนใหญ่) ถ.ลาดพร้าวว แขวงจันทร์เกษม เขตจตุจักร กทม. 10900",
+		locationURL: "https://google.com/"
+	},
+	{
+		name:"(ชื่อสถานที่)สำนักงานใหญ่ก้าวไกล",
+		workingHours:"วัน จ. - ศ. เวลา 08:00-18:00 น.",
+		tel:"081-112-1212",
+		address:"บ้านเลขที่ 1111/3 บ้านกลางเมืองรัชดา-ลาดพร้าว (หลังตรงกลางติดถนนใหญ่) ถ.ลาดพร้าวว แขวงจันทร์เกษม เขตจตุจักร กทม. 10900",
+		locationURL: "https://google.com/"
+	},
+]
+
+const provinceData: [string,LocationProps[]][] = [
+	['กรุงเทพมหานคร',sampleLocations],
+	['ฉะเชิงเทรา',sampleLocations],
+]
+---
+
+<Main>
+	<div
+		class="flex flex-col items-center justify-center gap-[6px] w-full md:max-w-[650px] mx-auto text-neutral"
+	>
+		<nav class="self-start flex items-center px-2 h-10">
+			<a class="flex items-center gap-[2px] link-01 text-secondary-focus underline" href="/">
+				<img src="/icons/arr-left.svg" alt="" width="16" height="16" loading="lazy" decoding="async">
+				กลับหน้าหลัก
+			</a>
+		</nav>
+		<div class="flex flex-col gap-[30px] px-4 py-[20px] w-full">
+			<h1 class="heading-responsive-01 text-balance leading-none text-center">มีจุดตั้งโต๊ะทั้งหมด xx จุด ใน xx จังหวัด</h1>
+			<div class="flex items-center gap-1 p-2 bg-base-200 rounded-lg">
+				<img src="/icons/magnify.svg" alt="" width="16" height="16" loading="lazy" decoding="async">
+				<input class="w-full bg-transparent outline-none focus:ring-2 focus:ring-primary-focus rounded" type="text" placeholder="ค้นด้วยชื่อจังหวัด">
+			</div>
+			<p class="body-02-normal text-center text-balance">ไม่มีจุดตั้งโต๊ะในจังหวัดที่คุณค้นหา</p>
+			<div class="flex flex-col gap-[19px]">
+				{provinceData.map(([province,locations]) => (
+					<Province province={province} locations={locations} />
+				))}
+			</div>
+		</div>
+	</div>
+</Main>
