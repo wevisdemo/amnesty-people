@@ -82,7 +82,7 @@
 	</div>
 	<div class="flex gap-[6px] mt-[4px]">
 		<a href="#event-reasons" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
-		<a href="#asa" class="link-01 underline">อาสาล่ารายชื่อ</a>
+		<a href="#volunteer" class="link-01 underline">อาสาล่ารายชื่อ</a>
 	</div>
 	<div class="flex items-center gap-[9px] mt-[4px]">
 		<span>แชร์</span>

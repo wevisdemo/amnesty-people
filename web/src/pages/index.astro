@@ -5,6 +5,7 @@ import Welcome from '../components/welcome.svelte';
 import Petition from '../components/petition.svelte';
 import Navbar from '../components/navbar.svelte';
 import Info from '../components/info.svelte';
+import Volunteer from '../components/volunteer.svelte';
 ---
 
 <script>
@@ -51,6 +52,10 @@ import Info from '../components/info.svelte';
 		<!-- <section id="petition" class="bg-primary">
 			<Petition client:load />
 		</section> -->
+
+		<section id="volunteer" class="flex items-center justify-center">
+			<Volunteer />
+		</section>
 
 		<section id="about-me" class="bg-base-100">
 			<Info />
