@@ -35,18 +35,18 @@
 			>{documentCount.toLocaleString('th-TH')}+</span
 		>
 	</p>
-	<p class="body-01 opacity-50">
+	<p class="body-01-normal opacity-50">
 		อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
 			day: 'numeric',
 			month: 'short',
 			year: '2-digit',
 		})}
 	</p>
-	<p class="body-02 text-balance">
+	<p class="body-02-normal text-balance">
 		มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง
 	</p>
 	<div class="flex flex-col gap-[6px] w-[220px] mt-[4px]">
-		<button type="button" class="btn btn-secondary w-full">
+		<button type="button" class="btn btn-secondary w-full body-02-semibold">
 			<img
 				src="/icons/pen.svg"
 				alt=""
@@ -57,7 +57,7 @@
 			/>
 			ลงชื่อ
 		</button>
-		<button type="button" class="btn btn-primary w-full">
+		<button type="button" class="btn btn-primary w-full body-02-semibold">
 			<img
 				src="/icons/pin.svg"
 				alt=""
@@ -68,7 +68,7 @@
 			/>
 			ดูสถานที่ลงชื่อ
 		</button>
-		<button type="button" class="btn btn-primary w-full">
+		<button type="button" class="btn btn-primary w-full body-02-semibold">
 			<img
 				src="/icons/table.svg"
 				alt=""
@@ -85,7 +85,7 @@
 		<a href="#volunteer" class="link-01 underline">อาสาล่ารายชื่อ</a>
 	</div>
 	<div class="flex items-center gap-[9px] mt-[4px]">
-		<span>แชร์</span>
+		<span class="body-01-normal">แชร์</span>
 		<SocialGroup />
 	</div>
 </div>
