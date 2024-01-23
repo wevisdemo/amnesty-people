@@ -16,7 +16,7 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center gap-[6px] w-full md:max-w-[650px] h-full p-[20px] text-center text-neutral-900"
+	class="flex flex-col items-center justify-center gap-[6px] w-full md:max-w-[650px] h-full p-[20px] text-center text-neutral"
 >
 	<img
 		class="flex-1 min-h-0 w-auto h-full aspect-square"
@@ -81,7 +81,7 @@
 		</button>
 	</div>
 	<div class="flex gap-[6px] mt-[4px]">
-		<a href="#why" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
+		<a href="#event-reasons" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
 		<a href="#asa" class="link-01 underline">อาสาล่ารายชื่อ</a>
 	</div>
 	<div class="flex items-center gap-[9px] mt-[4px]">
