@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
 	font-family: 'FC Minimal';
 	font-weight: 700;
 	src: url('/fonts/FC Minimal Bold.ttf');
@@ -14,22 +14,25 @@
 	font-family: 'IBM Plex Sans Thai';
 	font-weight: 700;
 	src: url('/fonts/IBMPlexSansThai-Bold.ttf');
-}
+} */
 
 @font-face {
 	font-family: 'IBM Plex Sans Thai Looped';
 	font-weight: 400;
 	src: url('/fonts/IBMPlexSansThaiLooped-Regular.ttf');
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'IBM Plex Sans Thai Looped';
 	font-weight: 600;
 	src: url('/fonts/IBMPlexSansThaiLooped-SemiBold.ttf');
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'IBM Plex Sans Thai Looped';
 	font-weight: 700;
 	src: url('/fonts/IBMPlexSansThaiLooped-Bold.ttf');
+	font-display: swap;
 }

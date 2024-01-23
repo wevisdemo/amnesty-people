@@ -1,12 +1,8 @@
 html {
 	scroll-behavior: smooth;
+	text-wrap: pretty;
 }
 
-section {
-	@apply w-full;
-}
-
-section > div,
-section > astro-island > div {
-	@apply px-3 py-4 md:py-14 w-full max-w-2xl mx-auto;
+.text-balance {
+	text-wrap: balance;
 }

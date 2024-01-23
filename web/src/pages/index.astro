@@ -32,10 +32,10 @@ import Info from '../components/info.svelte';
 	}
 </script>
 <Main>
-	<div class="flex flex-col justify-center items-center pb-[60px] md:pb-[80px]">
+	<div class="flex flex-col pb-[60px] md:pb-[80px]">
 		<section
 			id="welcome"
-			class="bg-base-300 min-h-screen flex justify-center items-center relative"
+			class="flex items-center justify-center h-screen bg-[url(/bg.png)] bg-cover bg-center"
 		>
 			<Welcome client:load />
 		</section>
@@ -44,7 +44,7 @@ import Info from '../components/info.svelte';
 			<Navbar />
 		</section>
 
-		<section id="event-reasons" class="bg-neutral">
+		<section id="event-reasons" class="bg-primary-focus">
 			<EventReason client:load />
 		</section>
 

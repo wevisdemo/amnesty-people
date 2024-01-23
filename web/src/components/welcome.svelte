@@ -16,159 +16,76 @@
 </script>
 
 <div
-	class="flex flex-col md:w-[85vw] md:max-w-[650px] space-y-[8px] justify-center items-center text-center"
+	class="flex flex-col items-center justify-center gap-[6px] w-full md:max-w-[650px] h-full p-[20px] text-center text-neutral-900"
 >
-	<img src="/logo.svg" alt="logo" class="md:max-w-[60px] max-w-[40px]" />
-	<h3 class="heading-responsive-01 text-neutral">ร่วมลงชื่อเสนอกฎหมาย</h3>
-	<h1
-		class="heading-responsive-03 text-primary leading-[50px] md:leading-[62px]"
-	>
-		บำนาญพื้นฐานแห่งชาติ
-	</h1>
-	<p class="body-02-normal text-neutral">
-		เปลี่ยนจาก<span class="text-secondary font-semibold"
-			>เบี้ยยังชีพแบบรัฐสงเคราะห์</span
-		>
-		ให้เป็น<span class="text-primary font-semibold"
-			>บำนาญถ้วนหน้าด้วยรัฐสวัสดิการ</span
-		>
-	</p>
 	<img
-		src="/welcome-image.svg"
-		alt="welcome-img"
-		class="md:max-w-[360px] max-w-[280px]"
+		class="flex-1 min-h-0 w-auto h-full aspect-square"
+		src="/logo.png"
+		alt=""
+		width="140"
+		height="140"
+		loading="lazy"
+		decoding="async"
 	/>
-	<p class="body-02-semibold text-neutral">เราต้องการอย่างน้อย 10,000 ชื่อ</p>
-	<p class="highlight body-02-semibold text-primary flex items-center">
-		ลงชื่อแล้ว<span class="heading-responsive-03 ml-[6px]">{documentCount}</span
+	<h1 class="heading-responsive-01 text-balance leading-none">
+		ลงชื่อเสนอ ร่าง พ.ร.บ. นิรโทษกรรมประชาชน
+	</h1>
+	<p class="rounded-full bg-secondary text-neutral-50 body-02-semibold w-full">
+		ลงชื่อแล้ว <span class="heading-responsive-02"
+			>{documentCount.toLocaleString('th-TH')}+</span
 		>
 	</p>
-	<p class="body-01-normal text-neutral opacity-50">
-		อัปเดตข้อมูล {new Date().toLocaleDateString('TH-th', {
-			dateStyle: 'medium',
+	<p class="body-01 opacity-50">
+		อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
+			day: 'numeric',
+			month: 'short',
+			year: '2-digit',
 		})}
 	</p>
-	<!-- <a
-		href="#petition"
-		class="btn btn-block bg-primary border-[0px] hover:bg-primary-focus text-body-03-semibold text-base-100 md:w-[85vw] md:max-w-[450px]"
-	>
-		ลงชื่อเลย
-		<img src="/icons/pen.svg" alt="icon-pen" fill="#FFD3C9" />
-	</a> -->
-	<div class="flex flex-row w-full max-w-md items-center gap-2">
-		<div class="flex-1 h-[2px] bg-secondary" />
-		<p class="heading-responsive-01 text-secondary">ปิดรับลงชื่อแล้ว</p>
-		<div class="flex-1 h-[2px] bg-secondary" />
+	<p class="body-02 text-balance">
+		มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง
+	</p>
+	<div class="flex flex-col gap-[6px] w-[220px] mt-[4px]">
+		<button type="button" class="btn btn-secondary w-full">
+			<img
+				src="/icons/pen.svg"
+				alt=""
+				width="16"
+				height="16"
+				loading="eager"
+				decoding="async"
+			/>
+			ลงชื่อ
+		</button>
+		<button type="button" class="btn btn-primary w-full">
+			<img
+				src="/icons/pin.svg"
+				alt=""
+				width="16"
+				height="16"
+				loading="eager"
+				decoding="async"
+			/>
+			ดูสถานที่ลงชื่อ
+		</button>
+		<button type="button" class="btn btn-primary w-full">
+			<img
+				src="/icons/table.svg"
+				alt=""
+				width="16"
+				height="16"
+				loading="eager"
+				decoding="async"
+			/>
+			ตารางกิจกรรม
+		</button>
 	</div>
-	<SocialGroup />
+	<div class="flex gap-[6px] mt-[4px]">
+		<a href="#why" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
+		<a href="#asa" class="link-01 underline">อาสาล่ารายชื่อ</a>
+	</div>
+	<div class="flex items-center gap-[9px] mt-[4px]">
+		<span>แชร์</span>
+		<SocialGroup />
+	</div>
 </div>
-
-<style>
-	.highlight {
-		text-shadow: 
-		 /* -8px -8px 1px white,  */
-		 /* -7px -8px 1px white,  */
-		 /* -6px -8px 1px white,  */
-		 /* -5px -8px 1px white,  */ -4px -8px
-				1px white,
-			-3px -8px 1px white, -2px -8px 1px white, -1px -8px 1px white,
-			0px -8px 1px white, 1px -8px 1px white, 2px -8px 1px white,
-			3px -8px 1px white, 4px -8px 1px white,
-			/* 5px -8px 1px white,  */ /* 6px -8px 1px white,  */
-				/* 7px -8px 1px white,  */ /* 8px -8px 1px white,  */
-				/* -8px -7px 1px white,  */ /* -7px -7px 1px white,  */ -6px -7px 1px
-				white,
-			-5px -7px 1px white, -4px -7px 1px white, -3px -7px 1px white,
-			-2px -7px 1px white, -1px -7px 1px white, 0px -7px 1px white,
-			1px -7px 1px white, 2px -7px 1px white, 3px -7px 1px white,
-			4px -7px 1px white, 5px -7px 1px white, 6px -7px 1px white,
-			/* 7px -7px 1px white,  */ /* 8px -7px 1px white,  */
-				/* -8px -6px 1px white,  */ -7px -6px 1px white,
-			/* -6px -6px 1px white, */ -5px -6px 1px white, -4px -6px 1px white,
-			-3px -6px 1px white, -2px -6px 1px white, -1px -6px 1px white,
-			0px -6px 1px white, 1px -6px 1px white, 2px -6px 1px white,
-			3px -6px 1px white, 4px -6px 1px white, 5px -6px 1px white,
-			/* 6px -6px 1px white, */ 7px -6px 1px white,
-			/* 8px -6px 1px white,  */ /* -8px -5px 1px white,  */ -7px -5px 1px white,
-			-6px -5px 1px white, -5px -5px 1px white, -4px -5px 1px white,
-			-3px -5px 1px white, -2px -5px 1px white, -1px -5px 1px white,
-			0px -5px 1px white, 1px -5px 1px white, 2px -5px 1px white,
-			3px -5px 1px white, 4px -5px 1px white, 5px -5px 1px white,
-			6px -5px 1px white, 7px -5px 1px white,
-			/* 8px -5px 1px white,  */ -8px -4px 1px white, -7px -4px 1px white,
-			-6px -4px 1px white, -5px -4px 1px white, -4px -4px 1px white,
-			-3px -4px 1px white, -2px -4px 1px white, -1px -4px 1px white,
-			0px -4px 1px white, 1px -4px 1px white, 2px -4px 1px white,
-			3px -4px 1px white, 4px -4px 1px white, 5px -4px 1px white,
-			6px -4px 1px white, 7px -4px 1px white, 8px -4px 1px white,
-			-8px -3px 1px white, -7px -3px 1px white, -6px -3px 1px white,
-			-5px -3px 1px white, -4px -3px 1px white, -3px -3px 1px white,
-			-2px -3px 1px white, -1px -3px 1px white, 0px -3px 1px white,
-			1px -3px 1px white, 2px -3px 1px white, 3px -3px 1px white,
-			4px -3px 1px white, 5px -3px 1px white, 6px -3px 1px white,
-			7px -3px 1px white, 8px -3px 1px white, -8px -2px 1px white,
-			-7px -2px 1px white, -6px -2px 1px white, -5px -2px 1px white,
-			-4px -2px 1px white, -3px -2px 1px white, -2px -2px 1px white,
-			-1px -2px 1px white, 0px -2px 1px white, 1px -2px 1px white,
-			2px -2px 1px white, 3px -2px 1px white, 4px -2px 1px white,
-			5px -2px 1px white, 6px -2px 1px white, 7px -2px 1px white,
-			8px -2px 1px white, -8px -1px 1px white, -7px -1px 1px white,
-			-6px -1px 1px white, -5px -1px 1px white, -4px -1px 1px white,
-			-3px -1px 1px white, -2px -1px 1px white, -1px -1px 1px white,
-			0px -1px 1px white, 1px -1px 1px white, 2px -1px 1px white,
-			3px -1px 1px white, 4px -1px 1px white, 5px -1px 1px white,
-			6px -1px 1px white, 7px -1px 1px white, 8px -1px 1px white,
-			-8px 0px 1px white, -7px 0px 1px white, -6px 0px 1px white,
-			-5px 0px 1px white, -4px 0px 1px white, -3px 0px 1px white,
-			-2px 0px 1px white, -1px 0px 1px white, 0px 0px 1px white,
-			1px 0px 1px white, 2px 0px 1px white, 3px 0px 1px white, 4px 0px 1px white,
-			5px 0px 1px white, 6px 0px 1px white, 7px 0px 1px white, 8px 0px 1px white,
-			-8px 1px 1px white, -7px 1px 1px white, -6px 1px 1px white,
-			-5px 1px 1px white, -4px 1px 1px white, -3px 1px 1px white,
-			-2px 1px 1px white, -1px 1px 1px white, 0px 1px 1px white,
-			1px 1px 1px white, 2px 1px 1px white, 3px 1px 1px white, 4px 1px 1px white,
-			5px 1px 1px white, 6px 1px 1px white, 7px 1px 1px white, 8px 1px 1px white,
-			-8px 2px 1px white, -7px 2px 1px white, -6px 2px 1px white,
-			-5px 2px 1px white, -4px 2px 1px white, -3px 2px 1px white,
-			-2px 2px 1px white, -1px 2px 1px white, 0px 2px 1px white,
-			1px 2px 1px white, 2px 2px 1px white, 3px 2px 1px white, 4px 2px 1px white,
-			5px 2px 1px white, 6px 2px 1px white, 7px 2px 1px white, 8px 2px 1px white,
-			-8px 3px 1px white, -7px 3px 1px white, -6px 3px 1px white,
-			-5px 3px 1px white, -4px 3px 1px white, -3px 3px 1px white,
-			-2px 3px 1px white, -1px 3px 1px white, 0px 3px 1px white,
-			1px 3px 1px white, 2px 3px 1px white, 3px 3px 1px white, 4px 3px 1px white,
-			5px 3px 1px white, 6px 3px 1px white, 7px 3px 1px white, 8px 3px 1px white,
-			-8px 4px 1px white, -7px 4px 1px white, -6px 4px 1px white,
-			-5px 4px 1px white, -4px 4px 1px white, -3px 4px 1px white,
-			-2px 4px 1px white, -1px 4px 1px white, 0px 4px 1px white,
-			1px 4px 1px white, 2px 4px 1px white, 3px 4px 1px white, 4px 4px 1px white,
-			5px 4px 1px white, 6px 4px 1px white, 7px 4px 1px white, 8px 4px 1px white,
-			/* -8px 5px 1px white,  */ -7px 5px 1px white, -6px 5px 1px white,
-			-5px 5px 1px white, -4px 5px 1px white, -3px 5px 1px white,
-			-2px 5px 1px white, -1px 5px 1px white, 0px 5px 1px white,
-			1px 5px 1px white, 2px 5px 1px white, 3px 5px 1px white, 4px 5px 1px white,
-			5px 5px 1px white, 6px 5px 1px white, 7px 5px 1px white,
-			/* 8px 5px 1px white,  */ /* -8px 6px 1px white,  */ -7px 6px 1px white,
-			/* -6px 6px 1px white, */ -5px 6px 1px white, -4px 6px 1px white,
-			-3px 6px 1px white, -2px 6px 1px white, -1px 6px 1px white,
-			0px 6px 1px white, 1px 6px 1px white, 2px 6px 1px white, 3px 6px 1px white,
-			4px 6px 1px white, 5px 6px 1px white,
-			/* 6px 6px 1px white, */ 7px 6px 1px white,
-			/* 8px 6px 1px white,  */ /* -8px 7px 1px white,  */
-				/* -7px 7px 1px white,  */ -6px 7px 1px white,
-			-5px 7px 1px white, -4px 7px 1px white, -3px 7px 1px white,
-			-2px 7px 1px white, -1px 7px 1px white, 0px 7px 1px white,
-			1px 7px 1px white, 2px 7px 1px white, 3px 7px 1px white, 4px 7px 1px white,
-			5px 7px 1px white, 6px 7px 1px white,
-			/* 7px 7px 1px white,  */ /* 8px 7px 1px white,  */
-				/* -8px 8px 1px white,  */ /* -7px 8px 1px white,  */
-				/* -6px 8px 1px white,  */ /* -5px 8px 1px white,  */ -4px 8px 1px white,
-			-3px 8px 1px white, -2px 8px 1px white, -1px 8px 1px white,
-			0px 8px 1px white, 1px 8px 1px white, 2px 8px 1px white, 3px 8px 1px white,
-			4px 8px 1px white;
-		/* 5px 8px 1px white,  */
-		/* 6px 8px 1px white,  */
-		/* 7px 8px 1px white,  */
-		/* 8px 8px 1px white,  */
-	}
-</style>
