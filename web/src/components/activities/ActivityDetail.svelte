@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let name: string;
-	export let link: string;
+	export let link = '';
 	export let province: string;
 	export let time: string;
 	export let location: string;
@@ -16,9 +16,13 @@
 	class="relative flex flex-col gap-1 body-01-normal pt-[10px] border-t border-t-base-300"
 >
 	<h3>
-		<a class="link-02 underline hover:text-secondary-focus" href={link}
-			>{name}</a
-		>
+		{#if link}
+			<a class="link-02 underline hover:text-secondary-focus" href={link}
+				>{name}</a
+			>
+		{:else}
+			<span class="body-02-normal">{name}</span>
+		{/if}
 	</h3>
 	<div class="flex">
 		<div class="flex-1">

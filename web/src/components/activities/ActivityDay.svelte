@@ -22,7 +22,7 @@
 <AccordionBase sticky open={!isPassed}>
 	<AccordionHead
 		slot="head"
-		header="วันที่ {day}"
+		header="วันที่ {day} ก.พ."
 		count={activities.length}
 		unit="กิจกรรม"
 		class="[&>.heading-responsive-01]:relative [&>.heading-responsive-01]:top-1 {isPassed
