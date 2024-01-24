@@ -30,13 +30,13 @@ async function fetchFiles() {
 		fetchWithColumns<Location[]>(process.env.LOCATION_CSV_URL),
 		fetchWithColumns<Event[]>(process.env.EVENT_CSV_URL),
 		fetchWithColumns<LeTruck[]>(process.env.LE_TRUCK_CSV_URL),
-		fetchWithColumns<Count>(process.env.OFFLINE_COUNT_CSV_URL),
+		fetchWithColumns<Count[]>(process.env.OFFLINE_COUNT_CSV_URL),
 	]);
 
 	writeFile('./output/locations.json', JSON.stringify(results[0]));
 	writeFile('./output/events.json', JSON.stringify(results[1]));
 	writeFile('./output/le-trucks.json', JSON.stringify(results[2]));
-	writeFile('./output/count.json', JSON.stringify(results[3]));
+	writeFile('./output/count.json', JSON.stringify(results[3][0]));
 }
 
 fetchFiles();
