@@ -5,7 +5,7 @@
 	import { date, flatten, parse, ValiError } from 'valibot';
 	import SignaturePad from 'signature_pad';
 	import { documentSchema } from '@pension-act/models';
-	import { submitDocument } from '../utils/firebase';
+	// import { submitDocument } from '../utils/firebase';
 	import TextDialog from './text-dialog.svelte';
 
 	let signatureCanvas: HTMLCanvasElement;
@@ -24,10 +24,12 @@
 
 	let monthOptions = [...Array.from({ length: 12 }, (_, i) => i + 1)];
 
+	let isValid = false;
+
 	let yearOptions = [
 		...Array.from(
 			{ length: 100 },
-			(_, i) => new Date().getFullYear() - i + 543
+			(_, i) => new Date().getFullYear() - i + 543,
 		),
 	];
 
@@ -60,14 +62,17 @@
 
 	const { form, setTouched, setData, data, reset } = createForm({
 		validate(values) {
+			console.log('validate => ', values);
 			try {
 				values.day = dateValue.day.toString();
 				values.month = dateValue.month.toString();
 				values.year = dateValue.year.toString();
 				parse(documentSchema, values);
 			} catch (e) {
+				isValid = false;
 				return flatten(e as ValiError).nested;
 			}
+			isValid = true;
 			return {};
 		},
 		async onSubmit(values) {
@@ -76,7 +81,7 @@
 				values.day = dateValue.day.toString();
 				values.month = dateValue.month.toString();
 				values.year = dateValue.year.toString();
-				await submitDocument(parse(documentSchema, values));
+				// await submitDocument(parse(documentSchema, values));
 				isSuccessDialogOpened = true;
 				clearPad();
 				reset();
@@ -201,13 +206,16 @@
 				name="personalid"
 				class="input rounded-sm bg-base-200 {messages ? 'input-error' : ''}"
 				disabled={isLoading}
+				maxlength="13"
 			/>
 			<div class="label">
 				<span
 					class="label-text-alt {messages
 						? 'text-error'
 						: 'text-neutral opacity-[60%]'}"
-					>ใส่เลขประจำตัวประชาชน 13 หลักไม่ต้องเว้นวรรค</span
+					>{messages
+						? messages
+						: 'ใส่เลขประจำตัวประชาชน 13 หลักไม่ต้องเว้นวรรค'}</span
 				>
 			</div>
 		</ValidationMessage>
@@ -241,8 +249,10 @@
 						disabled={isLoading}
 					/>
 					<div class="label">
-						<span class="label-text-alt {messages ? 'text-error' : ''}"
-							>ระบุชื่อจริงเป็นภาษาไทย</span
+						<span
+							class="label-text-alt {messages
+								? 'text-error'
+								: 'text-neutral opacity-[60%]'}">ระบุชื่อจริงเป็นภาษาไทย</span
 						>
 					</div>
 				</ValidationMessage>
@@ -263,47 +273,6 @@
 					class="label-text-alt {messages
 						? 'text-error'
 						: 'text-neutral opacity-[60%]'}">ระบุนามสกุลเป็นภาษาไทย</span
-				>
-			</div>
-		</ValidationMessage>
-		<ValidationMessage for="email" let:messages>
-			<label class="label" for="email">
-				<span class="label-text heading-03">อีเมล (Optional)</span>
-			</label>
-			<input
-				type="text"
-				name="email"
-				class="input rounded-sm bg-base-200 {messages ? 'input-error' : ''}"
-				disabled={isLoading}
-			/>
-			<div class="label">
-				<span
-					class="label-text-alt {messages
-						? 'text-error'
-						: 'text-neutral opacity-[60%]'}"
-				>
-					E-mail ที่ใช้งานในปัจจุบัน - สำหรับรับเอกสารยืนยันการลงลายมือชื่อ</span
-				>
-			</div>
-		</ValidationMessage>
-		<ValidationMessage for="phone" let:messages>
-			<label class="label" for="phone">
-				<span class="label-text heading-03">เบอร์โทรศัพท์ (Optional)</span>
-			</label>
-			<input
-				type="text"
-				name="phone"
-				class="input rounded-sm bg-base-200 {messages ? 'input-error' : ''}"
-				disabled={isLoading}
-			/>
-			<div class="label">
-				<span
-					class="label-text-alt {messages
-						? 'text-error'
-						: 'text-neutral opacity-[60%]'}"
-				>
-					ระบุเบอร์โทรศัพท์ที่ใช้งานในปัจจุบันสำหรับการอ้างอิง
-					ข้อมูลจะเก็บเป็นความลับ</span
 				>
 			</div>
 		</ValidationMessage>
@@ -409,7 +378,7 @@
 		<button
 			type="submit"
 			class="btn btn-primary w-full mt-2 heading-03 text-base text-base-100 disabled:text-base-100"
-			disabled={!$data.consent || isLoading}
+			disabled={!isValid || !$data.consent || isLoading}
 		>
 			{#if !isLoading}
 				ลงชื่อเลย
