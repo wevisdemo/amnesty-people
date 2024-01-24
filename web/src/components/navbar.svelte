@@ -3,7 +3,7 @@
 </script>
 
 <div
-	class="w-full max-w-[864px] flex justify-center items-center h-[60px] md:h-[80px] p-[18px]"
+	class="w-full max-w-[864px] flex justify-center items-center h-[60px] md:h-[80px] p-[18px] text-neutral"
 >
 	<div class="flex items-center">
 		<span class="hidden md:block heading-03 mr-[12px]">แชร์ให้เพื่อน</span>
