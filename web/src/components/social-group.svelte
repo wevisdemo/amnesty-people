@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { WEB_DOMAIN } from '@pension-act/constants';
+	import { WEB_DOMAIN } from '@amnesty-people/constants';
 	const PROD_URL = encodeURI(`https://${WEB_DOMAIN}`);
 </script>
 

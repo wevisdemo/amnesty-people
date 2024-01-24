@@ -1,4 +1,4 @@
-import { Document, PERSONALID_KEY } from '@pension-act/models';
+import { Document, PERSONALID_KEY } from '@amnesty-people/models';
 import { readdirSync, readFileSync, writeFileSync } from 'fs';
 import * as aq from 'arquero';
 import { Timestamp } from 'firebase/firestore';
