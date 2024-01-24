@@ -1,12 +1,12 @@
 {
-	"name": "@pension-act/live-data-fetcher",
+	"name": "@amnesty-people/live-data-fetcher",
 	"version": "0.0.1",
 	"main": "index.ts",
 	"scripts": {
 		"start": "ts-node index.ts"
 	},
 	"dependencies": {
-		"@pension-act/models": "*",
+		"@amnesty-people/models": "*",
 		"csv-parse": "^5.5.3",
 		"dotenv": "^16.3.1"
 	},
