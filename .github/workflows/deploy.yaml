@@ -7,6 +7,7 @@ on:
       - '**/README.md'
       - 'preprocessor/**'
       - 'pdf-render/**'
+      - 'live-data-fetcher/**'
   workflow_dispatch:
 
 concurrency:
