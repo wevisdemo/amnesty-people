@@ -12,7 +12,8 @@
 		"models",
 		"preprocessor",
 		"pdf-render",
-		"web"
+		"web",
+		"live-data-fetcher"
 	],
 	"lint-staged": {
 		"*": "prettier -u --write"
