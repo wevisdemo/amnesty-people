@@ -2,6 +2,9 @@
 	let staticHead = false;
 	export { staticHead as static };
 
+	let className = '';
+	export { className as class };
+
 	export let header: string;
 	export let count: number;
 	export let unit: string;
@@ -10,7 +13,7 @@
 <span
 	class="accordion-head flex items-center gap-[5px] pb-1 bg-base-100 border-t-2 border-t-neutral body-02-normal transition-colors {staticHead
 		? ''
-		: 'cursor-pointer hover:text-secondary-focus hover:border-t-secondary-focus'}"
+		: 'cursor-pointer hover:text-secondary-focus hover:border-t-secondary-focus'} {className}"
 >
 	<span class="heading-responsive-01">{header}</span>
 	<span class="leading-none">({count} {unit})</span>
