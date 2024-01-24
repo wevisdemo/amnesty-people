@@ -7,6 +7,7 @@ on:
       - '**/README.md'
       - 'preprocessor/**'
       - 'pdf-render/**'
+  workflow_dispatch:
 
 concurrency:
   group: deployment
@@ -21,7 +22,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version: 20
           cache: yarn
       - name: Install dependencies
         run: yarn
@@ -35,4 +36,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./web/dist
-          cname: pension-4all.com
+          cname: amnestypeople.com
