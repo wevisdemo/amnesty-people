@@ -2,7 +2,13 @@
 	<h2 class="heading-responsive-02 text-balance leading-none text-center">
 		ทำไมต้องลงชื่อ
 	</h2>
-	<img class="block mx-auto" src="/logo.png" alt="" width="140" height="108" />
+	<img
+		class="block mx-auto"
+		src="/logo.png"
+		alt="นิรโทษกรรมประชาชน"
+		width="140"
+		height="108"
+	/>
 	<p class="text-balance text-center body-02-normal">
 		ร่างพระราชบัญญัตินิรโทษกรรมประชาชน พ.ศ. ... จัดทำขึ้นจากความร่วมมือของ
 		เครือข่ายองค์กร ด้านสิทธิและนักกิจกรรม ทางการเมือง
