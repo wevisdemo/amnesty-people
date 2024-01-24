@@ -16,76 +16,83 @@
 </script>
 
 <div
-	class="flex flex-col items-center justify-center gap-[6px] w-full md:max-w-[650px] h-full p-[20px] text-center text-neutral"
+	class="flex flex-col items-center justify-center gap-[6px] md:flex-row md:gap-10 w-full max-w-[800px] h-full md:h-auto p-[20px] text-center text-neutral box-content"
 >
-	<img
-		class="flex-1 min-h-0 w-auto h-full aspect-square"
-		src="/logo.png"
-		alt=""
-		width="140"
-		height="140"
-		loading="lazy"
-		decoding="async"
-	/>
-	<h1 class="heading-responsive-01 text-balance leading-none">
-		ลงชื่อเสนอ ร่าง พ.ร.บ. นิรโทษกรรมประชาชน
-	</h1>
-	<p class="rounded-full bg-secondary text-neutral-50 body-02-semibold w-full">
-		ลงชื่อแล้ว <span class="heading-responsive-02"
-			>{documentCount.toLocaleString('th-TH')}+</span
+	<div class="flex flex-col min-h-0">
+		<img
+			class="w-auto h-auto min-h-0 max-h-full aspect-square object-contain block mb-[6px] md:mb-[10px]"
+			src="/logo.png"
+			alt=""
+			width="140"
+			height="140"
+			loading="lazy"
+			decoding="async"
+		/>
+		<h1 class="heading-responsive-01 text-balance leading-none">
+			ลงชื่อเสนอ ร่าง พ.ร.บ. นิรโทษกรรมประชาชน
+		</h1>
+	</div>
+	<div class="flex flex-col items-center gap-[6px] md:gap-[10px]">
+		<p
+			class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
 		>
-	</p>
-	<p class="body-01-normal opacity-50">
-		อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
-			day: 'numeric',
-			month: 'short',
-			year: '2-digit',
-		})}
-	</p>
-	<p class="body-02-normal text-balance">
-		มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง
-	</p>
-	<div class="flex flex-col gap-[6px] w-[220px] mt-[4px]">
-		<button type="button" class="btn btn-secondary w-full body-02-semibold">
-			<img
-				src="/icons/pen.svg"
-				alt=""
-				width="16"
-				height="16"
-				loading="eager"
-				decoding="async"
-			/>
-			ลงชื่อ
-		</button>
-		<a href="/locations" class="btn btn-primary w-full body-02-semibold">
-			<img
-				src="/icons/pin.svg"
-				alt=""
-				width="16"
-				height="16"
-				loading="eager"
-				decoding="async"
-			/>
-			ดูสถานที่ลงชื่อ
-		</a>
-		<button type="button" class="btn btn-primary w-full body-02-semibold">
-			<img
-				src="/icons/table.svg"
-				alt=""
-				width="16"
-				height="16"
-				loading="eager"
-				decoding="async"
-			/>
-			ตารางกิจกรรม
-		</button>
-	</div>
-	<div class="flex gap-[6px] mt-[4px]">
-		<a href="#event-reasons" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
-		<a href="#volunteer" class="link-01 underline">อาสาล่ารายชื่อ</a>
-	</div>
-	<div class="flex items-center gap-[9px] mt-[4px]">
-		<span class="body-01-normal">แชร์</span>
-		<SocialGroup />
+			<span>ลงชื่อแล้ว</span>
+			<span class="heading-responsive-02"
+				>{documentCount.toLocaleString('th-TH')}+</span
+			>
+		</p>
+		<p class="body-01-normal opacity-50">
+			อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
+				day: 'numeric',
+				month: 'short',
+				year: '2-digit',
+			})}
+		</p>
+		<p class="body-02-normal text-balance">
+			มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง
+		</p>
+		<div class="flex flex-col gap-[6px] w-[220px] mt-[4px]">
+			<button type="button" class="btn btn-secondary w-full body-02-semibold">
+				<img
+					src="/icons/pen.svg"
+					alt=""
+					width="16"
+					height="16"
+					loading="eager"
+					decoding="async"
+				/>
+				ลงชื่อ
+			</button>
+			<a href="/locations" class="btn btn-primary w-full body-02-semibold">
+				<img
+					src="/icons/pin.svg"
+					alt=""
+					width="16"
+					height="16"
+					loading="eager"
+					decoding="async"
+				/>
+				ดูสถานที่ลงชื่อ
+			</a>
+			<button type="button" class="btn btn-primary w-full body-02-semibold">
+				<img
+					src="/icons/table.svg"
+					alt=""
+					width="16"
+					height="16"
+					loading="eager"
+					decoding="async"
+				/>
+				ตารางกิจกรรม
+			</button>
+		</div>
+		<div class="flex gap-[6px] mt-[4px]">
+			<a href="#event-reasons" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
+			<a href="#volunteer" class="link-01 underline">อาสาล่ารายชื่อ</a>
+		</div>
+		<div class="flex items-center gap-[9px] mt-[4px]">
+			<span class="body-01-normal">แชร์</span>
+			<SocialGroup />
+		</div>
 	</div>
 </div>
