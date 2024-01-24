@@ -3,11 +3,11 @@
 		ทำไมต้องลงชื่อ
 	</h2>
 	<img
-		class="block mx-auto"
-		src="/logo.png"
-		alt="นิรโทษกรรมประชาชน"
-		width="140"
-		height="108"
+		class="block mx-auto w-auto h-[120px] md:h-[250px]"
+		src="/hand.png"
+		alt=""
+		width="386"
+		height="251"
 	/>
 	<p class="text-balance text-center body-02-normal">
 		ร่างพระราชบัญญัตินิรโทษกรรมประชาชน พ.ศ. ... จัดทำขึ้นจากความร่วมมือของ
@@ -23,7 +23,7 @@
 		<li>
 			<h4 class="body-03-semibold flex items-center gap-[2px]">
 				<img
-					src="/icons/pen-b.svg"
+					src="/icons/calendar.svg"
 					alt=""
 					width="20"
 					height="20"
@@ -41,7 +41,7 @@
 		<li>
 			<h4 class="body-03-semibold flex items-center gap-[2px]">
 				<img
-					src="/icons/pen-b.svg"
+					src="/icons/paper.svg"
 					alt=""
 					width="20"
 					height="20"
@@ -63,7 +63,7 @@
 		<li>
 			<h4 class="body-03-semibold flex items-center gap-[2px]">
 				<img
-					src="/icons/pen-b.svg"
+					src="/icons/flag.svg"
 					alt=""
 					width="20"
 					height="20"

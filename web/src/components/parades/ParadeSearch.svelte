@@ -54,6 +54,7 @@
 				{activities}
 				isPassed={day < CURRENT_DAY}
 				highlightProvince={formattedSearchQuery}
+				parade
 			/>
 		{:else}
 			<p class="body-02-normal text-center text-balance mt-[20px]">

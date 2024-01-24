@@ -46,7 +46,7 @@
 	</article>
 	<a class="btn btn-secondary" href="/activities">
 		<img
-			src="/icons/table-w.svg"
+			src="/icons/calendar-w.svg"
 			alt=""
 			width="16"
 			height="16"
@@ -57,7 +57,7 @@
 	</a>
 	<a class="btn btn-secondary" href="/parades">
 		<img
-			src="/icons/table-w.svg"
+			src="/icons/flag-w.svg"
 			alt=""
 			width="16"
 			height="16"

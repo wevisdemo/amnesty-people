@@ -2,6 +2,7 @@
 	export let name: string;
 	export let workingHours: string;
 	export let tel: string;
+	export let transport: string;
 	export let address: string;
 	export let locationURL: string;
 </script>
@@ -17,6 +18,10 @@
 	<div>
 		<strong class="block body-01-semibold">ติดต่อ</strong>
 		<p>{tel}</p>
+	</div>
+	<div>
+		<strong class="block body-01-semibold">คำบรรยายการเดินทาง</strong>
+		<p>{transport}</p>
 	</div>
 	<div>
 		<strong class="block body-01-semibold">ที่อยู่</strong>
