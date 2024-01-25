@@ -3,6 +3,8 @@ import { parse } from 'csv-parse/sync';
 import 'dotenv/config';
 import { Location, Event, LeTruck, Count } from '@amnesty-people/models';
 
+const OUTPUT_PATH = './dist/data';
+
 async function fetchWithColumns<T>(csvUrl: string): Promise<T> {
 	const res = await fetch(csvUrl);
 	const content = await res.text();
@@ -33,12 +35,12 @@ async function fetchFiles() {
 		fetchWithColumns<Count[]>(process.env.OFFLINE_COUNT_CSV_URL),
 	]);
 
-	await mkdir('./output');
+	await mkdir(OUTPUT_PATH, { recursive: true });
 
-	writeFile('./output/locations.json', JSON.stringify(results[0]));
-	writeFile('./output/events.json', JSON.stringify(results[1]));
-	writeFile('./output/le-trucks.json', JSON.stringify(results[2]));
-	writeFile('./output/count.json', JSON.stringify(results[3][0]));
+	writeFile(`${OUTPUT_PATH}/locations.json`, JSON.stringify(results[0]));
+	writeFile(`${OUTPUT_PATH}/events.json`, JSON.stringify(results[1]));
+	writeFile(`${OUTPUT_PATH}/le-trucks.json`, JSON.stringify(results[2]));
+	writeFile(`${OUTPUT_PATH}/count.json`, JSON.stringify(results[3][0]));
 }
 
 fetchFiles();
