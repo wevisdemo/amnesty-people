@@ -33,7 +33,7 @@
 		</button>
 	</div>
 	{#if tab === 'online'}
-		{#if process.env.PUBLIC_BUILD_TARGET !== 'production'}
+		{#if import.meta.env.PUBLIC_BUILD_TARGET !== 'production'}
 			<div class="bg-base-100 p-[10px] rounded-[4px]">
 				<SignatureForm />
 			</div>

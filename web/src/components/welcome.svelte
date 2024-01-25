@@ -33,7 +33,7 @@
 		</h1>
 	</div>
 	<div class="flex flex-col items-center gap-[6px] md:gap-[10px]">
-		{#if process.env.PUBLIC_BUILD_TARGET !== 'production'}
+		{#if import.meta.env.PUBLIC_BUILD_TARGET !== 'production'}
 			<p
 				class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
 			>
