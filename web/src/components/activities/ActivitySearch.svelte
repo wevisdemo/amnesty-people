@@ -24,7 +24,9 @@
 			{} as Record<K, T[]>,
 		);
 
-	const CURRENT_DAY = new Date().getDate();
+	const ONE_DAY = 86400000;
+	const ONE_MILLISEC = 1;
+	const CURRENT_DAY = new Date().getDate() - ONE_DAY - ONE_MILLISEC;
 
 	onMount(async () => {
 		const resp = await fetch('/data/events.json');
@@ -40,10 +42,8 @@
 		? json.filter((e) => e.province.includes(formattedSearchQuery))
 		: json;
 
-	let days: [number, ActivityDetailProps[]][] = [];
-	$: days = Object.entries(groupBy(filteredJson, ({ date }) => date)).map(
-		([date, activities]) => [new Date(date).getDate(), activities],
-	);
+	let days: [string, ActivityDetailProps[]][] = [];
+	$: days = Object.entries(groupBy(filteredJson, ({ date }) => date));
 </script>
 
 <div class="flex flex-col gap-[10px] px-4 py-[10px] w-full">
@@ -68,10 +68,11 @@
 	</div>
 	<div class="flex flex-col gap-[10px]">
 		{#each days as [day, activities] (day)}
+			{@const dayAsDate = +new Date(day)}
 			<ActivityDay
 				{day}
 				{activities}
-				isPassed={day < CURRENT_DAY}
+				isPassed={dayAsDate < CURRENT_DAY}
 				highlightProvince={formattedSearchQuery}
 			/>
 		{:else}
