@@ -31,7 +31,7 @@ import {
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,
-	JSON.parse(import.meta.env.PUBLIC_FIREBASE_CONFIG ?? '{}'),
+	JSON.parse(import.meta.env.PUBLIC_FIREBASE_CONFIG || '{}'),
 );
 
 const app = initializeApp(firebaseConfig);

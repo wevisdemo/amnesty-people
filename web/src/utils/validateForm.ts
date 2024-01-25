@@ -22,7 +22,6 @@ export const validateCitizenID =
 		const lastDigit = `${(11 - (sum % 11)) % 10}`;
 		const inputLastDigit = m[2];
 		if (lastDigit !== inputLastDigit) {
-			console.log('lastDigit', lastDigit);
 			throw new ValiError([
 				{
 					validation: 'min_length',
