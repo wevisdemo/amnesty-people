@@ -29,7 +29,7 @@ jobs:
       - name: Build staging web
         run: cd web && yarn build && cd ..
         env:
-          BUILD_TARGET: staging
+          PUBLIC_BUILD_TARGET: staging
           PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
           PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
       - name: Publish to Cloudflare Pages
@@ -55,7 +55,7 @@ jobs:
       - name: Build production web
         run: cd web && yarn build && cd ..
         env:
-          BUILD_TARGET: production
+          PUBLIC_BUILD_TARGET: production
           PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
           PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
       - name: Publish to Cloudflare Pages

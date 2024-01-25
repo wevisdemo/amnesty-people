@@ -4,10 +4,10 @@
 
 Build with GitHub Actions and deploy with Cloudflare Pages
 
-| Name       | process.env.BUILD_TARGET | URL                                      |
-| ---------- | ------------------------ | ---------------------------------------- |
-| Production | production               | https://amnestypeople.com                |
-| Staging    | staging                  | https://staging.amnesty-people.pages.dev |
+| Name       | process.env.PUBLIC_BUILD_TARGET | URL                                      |
+| ---------- | ------------------------------- | ---------------------------------------- |
+| Production | production                      | https://amnestypeople.com                |
+| Staging    | staging                         | https://staging.amnesty-people.pages.dev |
 
 ## Stack
 
