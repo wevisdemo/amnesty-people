@@ -18,8 +18,11 @@
 >
 	<h3>
 		{#if link}
-			<a class="link-02 underline hover:text-secondary-focus" href={link}
-				>{name}</a
+			<a
+				class="link-02 underline hover:text-secondary-focus"
+				href={link}
+				target="_blank"
+				rel="nofollow noopener noreferrer">{name}</a
 			>
 		{:else}
 			<span class="body-02-normal">{name}</span>
@@ -42,8 +45,11 @@
 	<div>
 		<strong class="block body-01-semibold">สถานที่</strong>
 		<p>{location}</p>
-		<a class="block w-max underline text-secondary-focus link-01" href={mapURL}
-			>ดูแผนที่</a
+		<a
+			class="block w-max underline text-secondary-focus link-01"
+			href={mapURL}
+			target="_blank"
+			rel="nofollow noopener noreferrer">ดูแผนที่</a
 		>
 	</div>
 	<details class="bg-base-200 group">

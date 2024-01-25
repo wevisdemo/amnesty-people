@@ -12,8 +12,10 @@
 				<span>1.</span>
 				<span>ลงทะเบียน</span>
 			</h3>
-			<button
-				type="button"
+			<a
+				href="https://docs.google.com/spreadsheets/d/10YoZk7ntGVM-Y81mblfXvGrRrDfyGNBKYlOfBxjHbLE/edit#gid=1983951033"
+				target="_blank"
+				rel="nofollow noopener noreferrer"
 				class="btn btn-secondary w-full body-03-semibold text-base-100 normal-case"
 			>
 				<img
@@ -25,7 +27,7 @@
 					decoding="async"
 				/>
 				Google Form
-			</button>
+			</a>
 			<hr class="border-t-primary-focus mt-2" role="none" />
 		</li>
 		<li class="flex flex-col gap-2">
@@ -44,8 +46,10 @@
 				width="212.13675213675214"
 				height="300"
 			/>
-			<button
-				type="button"
+			<a
+				href="https://drive.google.com/file/d/1vjNdJ5wRebCaSrSWxarqXbJVdBq-ZmZU/view"
+				target="_blank"
+				rel="nofollow noopener noreferrer"
 				class="btn btn-secondary w-full body-03-semibold text-base-100"
 			>
 				<img
@@ -57,14 +61,16 @@
 					decoding="async"
 				/>
 				ดาวน์โหลดแบบฟอร์ม
-			</button>
-			<button
-				type="button"
+			</a>
+			<a
+				href="https://drive.google.com/drive/folders/1eit2XXkNU5RqqLYIpP2nPs2_wv-kqIcQ"
+				target="_blank"
+				rel="nofollow noopener noreferrer"
 				class="btn btn-secondary btn-outline w-full body-03-semibold"
 			>
 				<Pictures />
 				ดาวน์โหลดโปสเตอร์และโลโก้
-			</button>
+			</a>
 			<hr class="border-t-primary-focus mt-2" role="none" />
 		</li>
 		<li class="flex flex-col gap-2">
@@ -81,13 +87,15 @@
 					<span class="body-02-normal mb-[5px] block"
 						>3.1. นำส่งด้วยตัวเองที่ iLaw</span
 					>
-					<button
-						type="button"
+					<a
+						href="https://maps.app.goo.gl/Fuvq6voTmLD4LGLb7"
+						target="_blank"
+						rel="nofollow noopener noreferrer"
 						class="btn btn-secondary btn-outline w-full body-03-semibold"
 					>
 						<Pictures />
 						ดูแผนที่
-					</button>
+					</a>
 				</li>
 				<li>
 					<span class="body-02-normal mb-[5px] block"
@@ -108,8 +116,10 @@
 				<span>4.</span>
 				<span>หากมีคำถามหรือสงสัย ติดต่อสอบถามผ่านไลน์</span>
 			</h3>
-			<button
-				type="button"
+			<a
+				href="https://line.me/ti/g2/eufXPbLUpzyEUT9tkPKRrsVCne_4lxfW9cRaWg?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+				target="_blank"
+				rel="nofollow noopener noreferrer"
 				class="btn w-full body-03-semibold text-base-100 bg-[#2BB25C] normal-case hover:bg-[#2BB25C] focus:bg-[#2BB25C] active:bg-[#2BB25C]"
 			>
 				<img
@@ -120,8 +130,8 @@
 					loading="eager"
 					decoding="async"
 				/>
-				@xxxxxx
-			</button>
+				iLaw Club
+			</a>
 			<p class="body-02-normal">ถามได้หมด มีแอดมินคอยช่วยเหลือ</p>
 		</li>
 	</ol>
