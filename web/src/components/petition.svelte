@@ -39,7 +39,7 @@
 			</div>
 		{:else}
 			<p class="text-center">
-				เริ่มเปิดให้ลงชื่อแบบออนไลน์<br>
+				เริ่มเปิดให้ลงชื่อแบบออนไลน์<br />
 				<span class="font-bold">วันที่ 1 ก.พ. นี้</span>
 			</p>
 		{/if}
@@ -70,9 +70,8 @@
 				<p class="flex space-x-[2px] mt-[20px] ml-[2px] body-02-semibold">
 					<span>1.</span><span>ดาวน์โหลดแบบฟอร์มและพิมพ์ลงกระดาษ A4</span>
 				</p>
-				<!-- TODO: add link -->
 				<a
-					href="/"
+					href="https://drive.google.com/file/d/1vjNdJ5wRebCaSrSWxarqXbJVdBq-ZmZU/view"
 					class="btn btn-secondary w-full body-02-semibold text-base-100 mt-[8px]"
 				>
 					<img
@@ -100,8 +99,10 @@
 					>
 				</p>
 				<p class="mt-[8px]">3.1. นำส่งด้วยตัวเองที่ iLaw</p>
-				<!-- TODO: add link map -->
-				<a href="/" class="btn btn-outline btn-secondary mt-[5px]">
+				<a
+					href="https://www.google.com/maps/place/iLaw/@13.8043583,100.5747799,17z/data=!3m1!4b1!4m6!3m5!1s0x30e29f78881156fb:0x7356cb8f9a29f043!8m2!3d13.8043531!4d100.5773548!16s%2Fg%2F11tgf6ww0c?entry=tts&shorturl=1"
+					class="btn btn-outline btn-secondary mt-[5px]"
+				>
 					<img
 						src="/icons/pictures.svg"
 						alt="pictures-icon"
