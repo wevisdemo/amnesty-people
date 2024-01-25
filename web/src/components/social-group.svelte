@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { WEB_DOMAIN } from '@amnesty-people/constants';
-	const PROD_URL = encodeURI(`https://${WEB_DOMAIN}`);
+	import { WEB_BASE } from '@amnesty-people/constants';
+	const PROD_URL = encodeURIComponent(WEB_BASE.href);
 </script>
 
 <div class="flex items-center gap-[6px]">
