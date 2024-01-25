@@ -1,30 +1,38 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import ActivityDetail from './activities/ActivityDetail.svelte';
 
-	const SAMPLE_EVENTS = [
-		{
-			name: 'งานนิทรรศการภาพถ่ายและเสวนา เรื่องความรุนแรงโดยรัฐและกระบวนการยุติธรรม และนิรโทษกรรม',
-			link: 'https://google.com/',
-			province: 'เชียงใหม่',
-			time: '13.00-19.00 น.',
-			location: 'พิพิธภัณฑ์ธรรมศาสตร์เฉลิมพระเกียรติ',
-			mapURL: 'https://google.com/',
-			arrangeBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
-			details:
-				'Lorem ipsum dolor sit amet consectetur. Id varius vitae ut iaculis gravida malesuada eget. Augue libero vitae magna eros.',
-		},
-		{
-			name: 'งานนิทรรศการภาพถ่ายและเสวนา เรื่องความรุนแรงโดยรัฐและกระบวนการยุติธรรม และนิรโทษกรรม1',
-			link: 'https://google.com/',
-			province: 'เชียงใหม่',
-			time: '13.00-19.00 น.',
-			location: 'พิพิธภัณฑ์ธรรมศาสตร์เฉลิมพระเกียรติ',
-			mapURL: 'https://google.com/',
-			arrangeBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
-			details:
-				'Lorem ipsum dolor sit amet consectetur. Id varius vitae ut iaculis gravida malesuada eget. Augue libero vitae magna eros.',
-		},
-	];
+	interface EventData {
+		date: string;
+		timeDescription: string;
+		name: string;
+		description: string;
+		location: string;
+		province: string;
+		locationUrl: string;
+		organizedBy: string;
+		eventUrl: string;
+	}
+
+	const CURRENT_DAY = new Date().toLocaleDateString('th', {
+		day: 'numeric',
+		month: 'short',
+	});
+
+	onMount(async () => {
+		const resp = await fetch('/data/events.json');
+		const json = (await resp.json()) as EventData[];
+
+		eventList = json.filter(
+			(event) =>
+				new Date(event.date).toLocaleDateString('th', {
+					day: 'numeric',
+					month: 'short',
+				}) === CURRENT_DAY,
+		);
+	});
+
+	let eventList: EventData[] = [];
 </script>
 
 <div class="flex flex-col gap-4 w-full md:max-w-[650px] px-4 py-6 text-neutral">
@@ -37,11 +45,13 @@
 	</p>
 	<article class="flex flex-col gap-[6px]">
 		<h3 class="flex items-center gap-[5px] justify-center body-02-normal">
-			<span class="heading-responsive-01">วันที่ 1 ก.พ.</span>
-			<span>({SAMPLE_EVENTS.length} กิจกรรม)</span>
+			<span class="heading-responsive-01">วันที่ {CURRENT_DAY}</span>
+			<span>({eventList.length} กิจกรรม)</span>
 		</h3>
-		{#each SAMPLE_EVENTS as activity}
+		{#each eventList as activity}
 			<ActivityDetail {...activity} />
+		{:else}
+			<p class="body-02-normal text-center">ไม่มีกิจกรรมวันนี้</p>
 		{/each}
 	</article>
 	<a class="btn btn-secondary" href="/activities">

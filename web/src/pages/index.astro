@@ -39,7 +39,7 @@ import Activities from '../components/activities.svelte';
 			id="welcome"
 			class="flex items-center justify-center h-screen bg-[url(/bg.png)] bg-cover bg-center"
 		>
-			<Welcome client:load />
+			<Welcome client:idle />
 		</section>
 
 		<section id="nav" class="fixed visible max-h-[80px] opacity-100 flex justify-center bg-primary p-0 left-0 right-0 bottom-0 z-50 transition-all duration-300 ease-out">
@@ -51,7 +51,7 @@ import Activities from '../components/activities.svelte';
 		</section>
 
 		<section id="activities" class="flex justify-center">
-			<Activities />
+			<Activities client:idle />
 		</section>
 
 		<section
