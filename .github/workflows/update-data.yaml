@@ -35,5 +35,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: amnesty-people
           directory: ./live-data-fetcher/dist
-          branch: staging
+          branch: staging-data
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
