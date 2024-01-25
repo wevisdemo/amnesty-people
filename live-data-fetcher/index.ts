@@ -1,7 +1,7 @@
 import { writeFile } from 'fs/promises';
 import { parse } from 'csv-parse/sync';
 import 'dotenv/config';
-import { Location, Event, LeTruck, Count } from '@pension-act/models';
+import { Location, Event, LeTruck, Count } from '@amnesty-people/models';
 
 async function fetchWithColumns<T>(csvUrl: string): Promise<T> {
 	const res = await fetch(csvUrl);
