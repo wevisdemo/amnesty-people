@@ -1,10 +1,10 @@
 <script lang="ts">
 	export let name: string;
-	export let workingHours: string;
-	export let tel: string;
-	export let transport: string;
+	export let dateTimeDescription: string;
+	export let contactNumber: string;
+	export let direction: string;
 	export let address: string;
-	export let locationURL: string;
+	export let locationUrl: string;
 </script>
 
 <div
@@ -13,22 +13,22 @@
 	<h3 class="body-02-semibold">{name}</h3>
 	<div>
 		<strong class="block body-01-semibold">วันและเวลาที่เปิด</strong>
-		<p>{workingHours}</p>
+		<p>{dateTimeDescription}</p>
 	</div>
 	<div>
 		<strong class="block body-01-semibold">ติดต่อ</strong>
-		<p>{tel}</p>
+		<p>{contactNumber}</p>
 	</div>
 	<div>
 		<strong class="block body-01-semibold">คำบรรยายการเดินทาง</strong>
-		<p>{transport}</p>
+		<p>{direction}</p>
 	</div>
 	<div>
 		<strong class="block body-01-semibold">ที่อยู่</strong>
 		<p>{address}</p>
 		<a
 			class="block w-max mt-1 underline text-secondary-focus link-01"
-			href={locationURL}
+			href={locationUrl}
 			target="_blank"
 			rel="nofollow noopener noreferrer">ดูแผนที่</a
 		>

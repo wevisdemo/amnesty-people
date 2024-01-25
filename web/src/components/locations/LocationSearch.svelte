@@ -1,42 +1,44 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import Province, { type LocationProps } from './Province.svelte';
 
-	const SAMPLE_LOCATIONS: LocationProps[] = [
-		{
-			name: 'ห้องหนังสือสมจริง(Somjing book)',
-			workingHours: 'ตั้งโต๊ะหลายวัน แต่อาจไม่ต่อเนื่องกัน 09.00-02.00 น.',
-			tel: '0809424076',
-			transport: 'อยู่หน้าหมู่บ้านกลางซอยวิลเลจ 2 อยู่หลังตลาดเอซี ถนนริมคลอง',
-			address: '60/9 หมู่ 4 ตำบลลาดสวาย อำเภอลำลูกกา จังหวัดปทุมธานี',
-			locationURL: 'https://google.com/',
-		},
-		{
-			name: '(ชื่อสถานที่)สำนักงานใหญ่ก้าวไกล0',
-			workingHours: 'วัน จ. - ศ. เวลา 08:00-18:00 น.',
-			tel: '081-112-1212',
-			transport: 'อยู่หน้าหมู่บ้านกลางซอยวิลเลจ 2 อยู่หลังตลาดเอซี ถนนริมคลอง',
-			address:
-				'บ้านเลขที่ 1111/3 บ้านกลางเมืองรัชดา-ลาดพร้าว (หลังตรงกลางติดถนนใหญ่) ถ.ลาดพร้าวว แขวงจันทร์เกษม เขตจตุจักร กทม. 10900',
-			locationURL: 'https://google.com/',
-		},
-	];
+	type LocationWithProvince = LocationProps & {
+		province: string;
+	};
 
-	const SAMPLE_PROVINCES: [string, LocationProps[]][] = [
-		['กรุงเทพมหานคร', SAMPLE_LOCATIONS],
-		['ฉะเชิงเทรา', SAMPLE_LOCATIONS],
-	];
+	const groupBy = <T, K extends keyof any>(
+		arr: T[],
+		groupFn: (element: T) => K,
+	): Record<K, T[]> =>
+		arr.reduce(
+			(r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r),
+			{} as Record<K, T[]>,
+		);
 
-	$: provinceCount = SAMPLE_PROVINCES.length;
-	$: locationCount = SAMPLE_PROVINCES.map(
-		([, locations]) => locations.length,
-	).reduce((a, b) => a + b, 0);
+	onMount(async () => {
+		const resp = await fetch('/data/locations.json');
+		const json = (await resp.json()) as LocationWithProvince[];
+
+		locationByProvinces = Object.entries(
+			groupBy(json, ({ province }) => province),
+		);
+	});
+
+	let locationByProvinces: [string, LocationProps[]][] = [];
+
+	$: provinceCount = locationByProvinces.length;
+	$: locationCount = locationByProvinces
+		.map(([, locations]) => locations.length)
+		.reduce((a, b) => a + b, 0);
 
 	let searchQuery = '';
 
 	$: formattedSearchQuery = searchQuery.trim();
 	$: searchedLocations = formattedSearchQuery
-		? SAMPLE_PROVINCES /* TODO: Filtering Logic */
-		: SAMPLE_PROVINCES;
+		? locationByProvinces.filter(([province]) =>
+				province.includes(formattedSearchQuery),
+		  )
+		: locationByProvinces;
 </script>
 
 <div class="flex flex-col gap-[30px] px-4 py-[20px] w-full">
