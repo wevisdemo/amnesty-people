@@ -1,18 +1,19 @@
-<script>
+<script lang="ts">
 	import SocialGroup from './social-group.svelte';
-	// import { countSubmittedDocuments } from '../utils/firebase';
-	// import { onMount } from 'svelte';
 
-	const documentCount = 12280;
+	interface Count {
+		offlineCount: string;
+	}
 
-	// onMount(async () => {
-	// 	try {
-	// 		const count = await countSubmittedDocuments();
-	// 		documentCount = count;
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// });
+	const fetchCount = async () => {
+		const resp = await fetch('/data/count.json');
+		const json = await resp.json();
+
+		if (resp.ok) return json as Count;
+		throw new Error(json);
+	};
+
+	let countPromise = fetchCount();
 </script>
 
 <div
@@ -38,9 +39,11 @@
 				class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
 			>
 				<span>ลงชื่อแล้ว</span>
-				<span class="heading-responsive-02"
-					>{documentCount.toLocaleString('th-TH')}+</span
-				>
+				{#await countPromise}
+					<span class="heading-responsive-02">...</span>
+				{:then data}
+					<span class="heading-responsive-02">{data.offlineCount}</span>
+				{/await}
 			</p>
 			<p class="body-01-normal opacity-50">
 				อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
