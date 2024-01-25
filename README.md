@@ -1,8 +1,13 @@
-# amnesty-people 
+# amnesty-people
 
 ## Environment
 
-- Production: not deployed yet
+Build with GitHub Actions and deploy with Cloudflare Pages
+
+| Name       | process.env.BUILD_TARGET | URL                                      |
+| ---------- | ------------------------ | ---------------------------------------- |
+| Production | production               | https://amnestypeople.com                |
+| Staging    | staging                  | https://amnesty-people-staging.pages.dev |
 
 ## Stack
 
@@ -11,7 +16,7 @@
   - You can add more adapters for your favorite framework: [read more](https://docs.astro.build/en/core-concepts/framework-components/)
 - [TailwindCSS](https://tailwindcss.com/docs) and [DaisyUI](https://daisyui.com/components/)
 - [Firebase](https://console.firebase.google.com) Firestore Database as a backend
- 
+
 ## Set up
 
 The project required the following env:
