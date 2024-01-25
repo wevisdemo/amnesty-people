@@ -22,12 +22,12 @@ import {
 	firebaseConfigSchema,
 	PERSONALID_KEY,
 	type Document,
-} from '@pension-act/models';
+} from '@amnesty-people/models';
 import {
 	FIRESTORE_DOCUMENT_COLLECTION,
 	FIRESTORE_USER_COLLECTION,
 	IGNORED_PERSONALID,
-} from '@pension-act/constants';
+} from '@amnesty-people/constants';
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,

@@ -4,7 +4,7 @@
 	import { reporter, ValidationMessage } from '@felte/reporter-svelte';
 	import { date, flatten, parse, ValiError } from 'valibot';
 	import SignaturePad from 'signature_pad';
-	import { documentSchema } from '@pension-act/models';
+	import { documentSchema } from '@amnesty-people/models';
 	// import { submitDocument } from '../utils/firebase';
 	import TextDialog from './text-dialog.svelte';
 

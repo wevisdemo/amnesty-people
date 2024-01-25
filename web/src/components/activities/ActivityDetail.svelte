@@ -1,30 +1,39 @@
 <script lang="ts">
 	export let name: string;
-	export let link: string;
-	export let province: string;
+	export let link = '';
+	export let province = '';
 	export let time: string;
 	export let location: string;
 	export let mapURL: string;
-	export let arrangeBy: string;
+	export let arrangeBy = '';
 	export let details: string;
 
 	export let isPassed = false;
 	export let highlightProvince = false;
+	export let parade = false;
 </script>
 
 <div
 	class="relative flex flex-col gap-1 body-01-normal pt-[10px] border-t border-t-base-300"
 >
 	<h3>
-		<a class="link-02 underline hover:text-secondary-focus" href={link}
-			>{name}</a
-		>
+		{#if link}
+			<a class="link-02 underline hover:text-secondary-focus" href={link}
+				>{name}</a
+			>
+		{:else}
+			<span class="body-02-normal">{name}</span>
+		{/if}
 	</h3>
 	<div class="flex">
-		<div class="flex-1">
-			<strong class="block body-01-semibold">จังหวัด</strong>
-			<p class="w-fit" class:bg-primary-focus={highlightProvince}>{province}</p>
-		</div>
+		{#if !parade && province}
+			<div class="flex-1">
+				<strong class="block body-01-semibold">จังหวัด</strong>
+				<p class="w-fit" class:bg-primary-focus={highlightProvince}>
+					{province}
+				</p>
+			</div>
+		{/if}
 		<div class="flex-1">
 			<strong class="block body-01-semibold">เวลา</strong>
 			<p>{time}</p>
@@ -54,12 +63,18 @@
 			</span>
 		</summary>
 		<div class="flex flex-col gap-1 p-1 pt-0">
+			{#if !parade && arrangeBy}
+				<div>
+					<strong class="block body-01-semibold">จัดโดย</strong>
+					<p>{arrangeBy}</p>
+				</div>
+			{/if}
 			<div>
-				<strong class="block body-01-semibold">จัดโดย</strong>
-				<p>{arrangeBy}</p>
-			</div>
-			<div>
-				<strong class="block body-01-semibold">รายละเอียด</strong>
+				{#if parade}
+					<strong class="block body-01-semibold">พบกับ</strong>
+				{:else}
+					<strong class="block body-01-semibold">รายละเอียด</strong>
+				{/if}
 				<p>{details}</p>
 			</div>
 		</div>

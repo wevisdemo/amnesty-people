@@ -1,5 +1,5 @@
 {
-	"name": "@pension-act/models",
+	"name": "@amnesty-people/models",
 	"version": "0.0.1",
 	"main": "src/index.ts",
 	"dependencies": {

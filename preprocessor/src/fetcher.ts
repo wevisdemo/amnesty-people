@@ -12,11 +12,11 @@ import {
 	startAfter,
 } from 'firebase/firestore';
 import { parse } from 'valibot';
-import { firebaseConfigSchema, PERSONALID_KEY } from '@pension-act/models';
+import { firebaseConfigSchema, PERSONALID_KEY } from '@amnesty-people/models';
 import {
 	FIRESTORE_DOCUMENT_COLLECTION,
 	IGNORED_PERSONALID,
-} from '@pension-act/constants';
+} from '@amnesty-people/constants';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
 const OUTPUT_DIR = 'out';
