@@ -33,9 +33,16 @@
 		</button>
 	</div>
 	{#if tab === 'online'}
-		<div class="bg-base-100 p-[10px] rounded-[4px]">
-			<SignatureForm />
-		</div>
+		{#if process.env.PUBLIC_BUILD_TARGET !== 'production'}
+			<div class="bg-base-100 p-[10px] rounded-[4px]">
+				<SignatureForm />
+			</div>
+		{:else}
+			<p class="text-center">
+				เริ่มเปิดให้ลงชื่อแบบออนไลน์<br>
+				<span class="font-bold">วันที่ 1 ก.พ. นี้</span>
+			</p>
+		{/if}
 	{:else}
 		<div class="flex flex-col w-full space-y-[12px] body-02-normal">
 			<div class="flex flex-col w-full bg-base-100 p-[16px]">

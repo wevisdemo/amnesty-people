@@ -33,21 +33,23 @@
 		</h1>
 	</div>
 	<div class="flex flex-col items-center gap-[6px] md:gap-[10px]">
-		<p
-			class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
-		>
-			<span>ลงชื่อแล้ว</span>
-			<span class="heading-responsive-02"
-				>{documentCount.toLocaleString('th-TH')}+</span
+		{#if process.env.PUBLIC_BUILD_TARGET !== 'production'}
+			<p
+				class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
 			>
-		</p>
-		<p class="body-01-normal opacity-50">
-			อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
-				day: 'numeric',
-				month: 'short',
-				year: '2-digit',
-			})}
-		</p>
+				<span>ลงชื่อแล้ว</span>
+				<span class="heading-responsive-02"
+					>{documentCount.toLocaleString('th-TH')}+</span
+				>
+			</p>
+			<p class="body-01-normal opacity-50">
+				อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
+					day: 'numeric',
+					month: 'short',
+					year: '2-digit',
+				})}
+			</p>
+		{/if}
 		<p class="body-02-normal text-balance">
 			มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง
 		</p>
