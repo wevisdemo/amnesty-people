@@ -324,7 +324,6 @@
 							class="btn bg-base-100 heading-03 shadow-xl"
 							on:click={() => (isSignatureEnabled = true)}
 						>
-							คลิกเพื่อกรอกลายเซ็น
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="16"
@@ -349,6 +348,7 @@
 									fill="black"
 								/>
 							</svg>
+							คลิกเพื่อกรอกลายเซ็น
 						</button>
 					</div>
 				{/if}
@@ -364,20 +364,19 @@
 				<input
 					type="checkbox"
 					name="consent"
-					class="checkbox checkbox-primary"
+					class="checkbox checkbox-neutral"
 				/>
-				<span class="label-text"
-					>ข้าพเจ้ายินยอมลงชื่อเสนอกฎหมาย <a
-						href="https://drive.google.com/file/d/1r8MtAdoqSPW37I4aQrgID5U1cFHqy-R2/view"
-						target="_blank"
-						class="underline">อ่านนโยบายการคุ้มครองข้อมูลส่วนบุคคล</a
-					></span
+				<a
+					href="https://drive.google.com/file/d/1r8MtAdoqSPW37I4aQrgID5U1cFHqy-R2/view"
+					target="_blank"
+					class=" label-text underline"
+					>ข้าพเจ้ายินยอมลงชื่อเสนอกฎหมาย อ่านนโยบายการคุ้มครองข้อมูลส่วนบุคคล</a
 				>
 			</label>
 		</div>
 		<button
 			type="submit"
-			class="btn btn-primary w-full mt-2 heading-03 text-base text-base-100 disabled:text-base-100"
+			class="btn btn-secondary w-full mt-2 heading-03 text-base text-base-100 disabled:text-base-100"
 			disabled={!isValid || !$data.consent || isLoading}
 		>
 			{#if !isLoading}
