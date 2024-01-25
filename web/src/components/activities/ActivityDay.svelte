@@ -12,7 +12,7 @@
 	import AccordionHead from '../accordion/AccordionHead.svelte';
 	import ActivityDetail from './ActivityDetail.svelte';
 
-	export let day: number;
+	export let day: string;
 	export let activities: ActivityDetailProps[];
 
 	export let isPassed = false;
@@ -22,7 +22,10 @@
 <AccordionBase sticky open={!isPassed}>
 	<AccordionHead
 		slot="head"
-		header="วันที่ {day} ก.พ."
+		header="วันที่ {new Date(day).toLocaleDateString('th', {
+			day: 'numeric',
+			month: 'short',
+		})}"
 		count={activities.length}
 		unit="กิจกรรม"
 		class="[&>.heading-responsive-01]:relative [&>.heading-responsive-01]:top-1 {isPassed

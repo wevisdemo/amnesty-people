@@ -20,18 +20,19 @@
 			{} as Record<K, T[]>,
 		);
 
-	const CURRENT_DAY = new Date().getDate();
+	const ONE_DAY = 86400000;
+	const ONE_MILLISEC = 1;
+	const CURRENT_DAY = Date.now() - ONE_DAY - ONE_MILLISEC;
+	// NOTE - Don't debug with Date(YYYY,MM,DD) cus timezone
 
 	onMount(async () => {
 		const resp = await fetch('/data/le-trucks.json');
 		const json = (await resp.json()) as EventData[];
 
-		days = Object.entries(groupBy(json, ({ date }) => date)).map(
-			([date, activities]) => [new Date(date).getDate(), activities],
-		);
+		days = Object.entries(groupBy(json, ({ date }) => date));
 	});
 
-	let days: [number, EventData[]][] = [];
+	let days: [string, EventData[]][] = [];
 </script>
 
 <div class="flex flex-col gap-[10px] px-4 py-[10px] w-full">
@@ -40,7 +41,8 @@
 	</h1>
 	<div class="flex flex-col gap-[10px]">
 		{#each days as [day, activities] (day)}
-			<ActivityDay {day} {activities} isPassed={day < CURRENT_DAY} />
+			{@const dayAsDate = +new Date(day)}
+			<ActivityDay {day} {activities} isPassed={dayAsDate < CURRENT_DAY} />
 		{/each}
 	</div>
 </div>
