@@ -5,24 +5,24 @@
 	const SAMPLE_EVENTS: ActivityDetailProps[] = [
 		{
 			name: 'งานนิทรรศการภาพถ่ายและเสวนา เรื่องความรุนแรงโดยรัฐและกระบวนการยุติธรรม และนิรโทษกรรม',
-			link: 'https://google.com/',
+			eventUrl: 'https://google.com/',
 			province: 'เชียงใหม่',
-			time: '13.00-19.00 น.',
+			timeDescription: '13.00-19.00 น.',
 			location: 'พิพิธภัณฑ์ธรรมศาสตร์เฉลิมพระเกียรติ',
-			mapURL: 'https://google.com/',
-			arrangeBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
-			details:
+			locationUrl: 'https://google.com/',
+			organizedBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
+			description:
 				'Lorem ipsum dolor sit amet consectetur. Id varius vitae ut iaculis gravida malesuada eget. Augue libero vitae magna eros.',
 		},
 		{
 			name: 'งานนิทรรศการภาพถ่ายและเสวนา เรื่องความรุนแรงโดยรัฐและกระบวนการยุติธรรม และนิรโทษกรรม1',
-			link: 'https://google.com/',
+			eventUrl: 'https://google.com/',
 			province: 'เชียงใหม่',
-			time: '13.00-19.00 น.',
+			timeDescription: '13.00-19.00 น.',
 			location: 'พิพิธภัณฑ์ธรรมศาสตร์เฉลิมพระเกียรติ',
-			mapURL: 'https://google.com/',
-			arrangeBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
-			details:
+			locationUrl: 'https://google.com/',
+			organizedBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
+			description:
 				'Lorem ipsum dolor sit amet consectetur. Id varius vitae ut iaculis gravida malesuada eget. Augue libero vitae magna eros.',
 		},
 	];

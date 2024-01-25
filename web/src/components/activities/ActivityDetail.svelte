@@ -1,26 +1,26 @@
 <script lang="ts">
+	export let timeDescription: string;
 	export let name: string;
-	export let link = '';
-	export let province = '';
-	export let time: string;
 	export let location: string;
-	export let mapURL: string;
-	export let arrangeBy = '';
-	export let details: string;
+	export let locationUrl: string;
+	export let description = '';
+	export let notablePersons = '';
+	export let eventUrl = '';
+	export let province = '';
+	export let organizedBy = '';
 
 	export let isPassed = false;
 	export let highlightProvince = false;
-	export let parade = false;
 </script>
 
 <div
 	class="relative flex flex-col gap-1 body-01-normal pt-[10px] border-t border-t-base-300"
 >
 	<h3>
-		{#if link}
+		{#if eventUrl}
 			<a
 				class="link-02 underline hover:text-secondary-focus"
-				href={link}
+				href={eventUrl}
 				target="_blank"
 				rel="nofollow noopener noreferrer">{name}</a
 			>
@@ -29,7 +29,7 @@
 		{/if}
 	</h3>
 	<div class="flex">
-		{#if !parade && province}
+		{#if province}
 			<div class="flex-1">
 				<strong class="block body-01-semibold">จังหวัด</strong>
 				<p class="w-fit" class:bg-primary-focus={highlightProvince}>
@@ -39,7 +39,7 @@
 		{/if}
 		<div class="flex-1">
 			<strong class="block body-01-semibold">เวลา</strong>
-			<p>{time}</p>
+			<p>{timeDescription}</p>
 		</div>
 	</div>
 	<div>
@@ -47,44 +47,50 @@
 		<p>{location}</p>
 		<a
 			class="block w-max underline text-secondary-focus link-01"
-			href={mapURL}
+			href={locationUrl}
 			target="_blank"
 			rel="nofollow noopener noreferrer">ดูแผนที่</a
 		>
 	</div>
-	<details class="bg-base-200 group">
-		<summary class="p-1 list-none opacity-60 cursor-pointer">
-			<span
-				class="flex items-center justify-between group-open:border-b group-open:border-b-base-300"
-			>
-				<span>อ่านรายละเอียด</span>
-				<img
-					src="/icons/chevron-down.svg"
-					alt=""
-					width="16"
-					height="16"
-					loading="lazy"
-					decoding="async"
-				/>
-			</span>
-		</summary>
-		<div class="flex flex-col gap-1 p-1 pt-0">
-			{#if !parade && arrangeBy}
-				<div>
-					<strong class="block body-01-semibold">จัดโดย</strong>
-					<p>{arrangeBy}</p>
-				</div>
-			{/if}
-			<div>
-				{#if parade}
-					<strong class="block body-01-semibold">พบกับ</strong>
-				{:else}
-					<strong class="block body-01-semibold">รายละเอียด</strong>
+	{#if organizedBy || description || notablePersons}
+		<details class="bg-base-200 group">
+			<summary class="p-1 list-none opacity-60 cursor-pointer">
+				<span
+					class="flex items-center justify-between group-open:border-b group-open:border-b-base-300"
+				>
+					<span>อ่านรายละเอียด</span>
+					<img
+						src="/icons/chevron-down.svg"
+						alt=""
+						width="16"
+						height="16"
+						loading="lazy"
+						decoding="async"
+					/>
+				</span>
+			</summary>
+			<div class="flex flex-col gap-1 p-1 pt-0">
+				{#if organizedBy}
+					<div>
+						<strong class="block body-01-semibold">จัดโดย</strong>
+						<p>{organizedBy}</p>
+					</div>
 				{/if}
-				<p>{details}</p>
+				{#if description}
+					<div>
+						<strong class="block body-01-semibold">รายละเอียด</strong>
+						<p>{description}</p>
+					</div>
+				{/if}
+				{#if notablePersons}
+					<div>
+						<strong class="block body-01-semibold">พบกับ</strong>
+						<p>{notablePersons}</p>
+					</div>
+				{/if}
 			</div>
-		</div>
-	</details>
+		</details>
+	{/if}
 	{#if isPassed}
 		<div
 			class="absolute inset-0 bg-base-100/70 flex items-center justify-center"

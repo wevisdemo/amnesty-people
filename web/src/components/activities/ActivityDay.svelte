@@ -17,7 +17,6 @@
 
 	export let isPassed = false;
 	export let highlightProvince = '';
-	export let parade = false;
 </script>
 
 <AccordionBase sticky open={!isPassed}>
@@ -36,7 +35,6 @@
 				{...activity}
 				{isPassed}
 				highlightProvince={activity.province === highlightProvince}
-				{parade}
 			/>
 		{/each}
 	</div>
