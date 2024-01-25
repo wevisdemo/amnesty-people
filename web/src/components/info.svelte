@@ -8,7 +8,7 @@
 		</h2>
 	</header>
 	<div class="flex justify-center gap-[6px] flex-wrap">
-		{#each Array(24) as _, idx}
+		{#each Array(23) as _, idx}
 			<img
 				src="/cooperations/{idx + 1}.svg"
 				alt=""
