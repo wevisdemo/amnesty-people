@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import ActivityDay from './ActivityDay.svelte';
 	import type { ActivityDetailProps } from './ActivityDay.svelte';
+	import { PUBLIC_DATA_URL } from '../../utils/data';
 
 	interface EventData {
 		date: string;
@@ -29,7 +30,7 @@
 	const CURRENT_DAY = new Date().getDate() - ONE_DAY - ONE_MILLISEC;
 
 	onMount(async () => {
-		const resp = await fetch('/data/events.json');
+		const resp = await fetch(`${PUBLIC_DATA_URL}/events.json`);
 		json = (await resp.json()) as EventData[];
 	});
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Province, { type LocationProps } from './Province.svelte';
+	import { PUBLIC_DATA_URL } from '../../utils/data';
 
 	type LocationWithProvince = LocationProps & {
 		province: string;
@@ -16,7 +17,7 @@
 		);
 
 	onMount(async () => {
-		const resp = await fetch('/data/locations.json');
+		const resp = await fetch(`${PUBLIC_DATA_URL}/locations.json`);
 		const json = (await resp.json()) as LocationWithProvince[];
 
 		locationByProvinces = Object.entries(

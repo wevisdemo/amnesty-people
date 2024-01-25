@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import ActivityDetail from './activities/ActivityDetail.svelte';
+	import { PUBLIC_DATA_URL } from '../utils/data';
 
 	interface EventData {
 		date: string;
@@ -20,7 +21,7 @@
 	});
 
 	onMount(async () => {
-		const resp = await fetch('/data/events.json');
+		const resp = await fetch(`${PUBLIC_DATA_URL}/events.json`);
 		const json = (await resp.json()) as EventData[];
 
 		eventList = json.filter(

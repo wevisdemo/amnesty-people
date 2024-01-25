@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { PUBLIC_DATA_URL } from '../utils/data';
 	import SocialGroup from './social-group.svelte';
 
 	interface Count {
@@ -6,7 +7,7 @@
 	}
 
 	const fetchCount = async () => {
-		const resp = await fetch('/data/count.json');
+		const resp = await fetch(`${PUBLIC_DATA_URL}/count.json`);
 		const json = await resp.json();
 
 		if (resp.ok) return json as Count;

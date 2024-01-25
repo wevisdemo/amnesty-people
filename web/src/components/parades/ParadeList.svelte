@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import ActivityDay from '../activities/ActivityDay.svelte';
+	import { PUBLIC_DATA_URL } from '../../utils/data';
 
 	interface EventData {
 		date: string;
@@ -26,7 +27,7 @@
 	// NOTE - Don't debug with Date(YYYY,MM,DD) cus timezone
 
 	onMount(async () => {
-		const resp = await fetch('/data/le-trucks.json');
+		const resp = await fetch(`${PUBLIC_DATA_URL}/le-trucks.json`);
 		const json = (await resp.json()) as EventData[];
 
 		days = Object.entries(groupBy(json, ({ date }) => date));
