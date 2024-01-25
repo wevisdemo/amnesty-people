@@ -1,4 +1,4 @@
-import { writeFile } from 'fs/promises';
+import { mkdir, writeFile } from 'fs/promises';
 import { parse } from 'csv-parse/sync';
 import 'dotenv/config';
 import { Location, Event, LeTruck, Count } from '@amnesty-people/models';
@@ -32,6 +32,8 @@ async function fetchFiles() {
 		fetchWithColumns<LeTruck[]>(process.env.LE_TRUCK_CSV_URL),
 		fetchWithColumns<Count[]>(process.env.OFFLINE_COUNT_CSV_URL),
 	]);
+
+	await mkdir('./output');
 
 	writeFile('./output/locations.json', JSON.stringify(results[0]));
 	writeFile('./output/events.json', JSON.stringify(results[1]));

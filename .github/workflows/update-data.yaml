@@ -1,0 +1,40 @@
+name: Update Live Data
+
+on:
+  schedule:
+    - cron: '0,30 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: deployment
+  cancel-in-progress: true
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: yarn
+      - name: Install dependencies
+        run: yarn
+      - name: Fetch data from Sheets
+        run: cd live-data-fetcher && yarn start && cd ..
+        env:
+          LOCATION_CSV_URL: ${{ vars.LOCATION_CSV_URL }}
+          EVENT_CSV_URL: ${{ vars.EVENT_CSV_URL }}
+          LE_TRUCK_CSV_URL: ${{ vars.LE_TRUCK_CSV_URL }}
+          OFFLINE_COUNT_CSV_URL: ${{ vars.OFFLINE_COUNT_CSV_URL }}
+      - name: Update live data to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: amnesty-people
+          directory: ./live-data-fetcher/output
+          workingDirectory: /data
+          branch: staging
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
