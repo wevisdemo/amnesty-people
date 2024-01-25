@@ -1,53 +1,49 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import ActivityDay from './ActivityDay.svelte';
 	import type { ActivityDetailProps } from './ActivityDay.svelte';
 
-	const SAMPLE_EVENTS: ActivityDetailProps[] = [
-		{
-			name: 'งานนิทรรศการภาพถ่ายและเสวนา เรื่องความรุนแรงโดยรัฐและกระบวนการยุติธรรม และนิรโทษกรรม',
-			eventUrl: 'https://google.com/',
-			province: 'เชียงใหม่',
-			timeDescription: '13.00-19.00 น.',
-			location: 'พิพิธภัณฑ์ธรรมศาสตร์เฉลิมพระเกียรติ',
-			locationUrl: 'https://google.com/',
-			organizedBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
-			description:
-				'Lorem ipsum dolor sit amet consectetur. Id varius vitae ut iaculis gravida malesuada eget. Augue libero vitae magna eros.',
-		},
-		{
-			name: 'งานนิทรรศการภาพถ่ายและเสวนา เรื่องความรุนแรงโดยรัฐและกระบวนการยุติธรรม และนิรโทษกรรม1',
-			eventUrl: 'https://google.com/',
-			province: 'เชียงใหม่',
-			timeDescription: '13.00-19.00 น.',
-			location: 'พิพิธภัณฑ์ธรรมศาสตร์เฉลิมพระเกียรติ',
-			locationUrl: 'https://google.com/',
-			organizedBy: 'อมธ. x พิพิธภัณฑ์สามัญชน',
-			description:
-				'Lorem ipsum dolor sit amet consectetur. Id varius vitae ut iaculis gravida malesuada eget. Augue libero vitae magna eros.',
-		},
-	];
+	interface EventData {
+		date: string;
+		timeDescription: string;
+		name: string;
+		description: string;
+		location: string;
+		province: string;
+		locationUrl: string;
+		organizedBy: string;
+		eventUrl: string;
+	}
 
-	const DAYS: [number, ActivityDetailProps[]][] = [
-		[1, SAMPLE_EVENTS],
-		[2, SAMPLE_EVENTS],
-		[3, SAMPLE_EVENTS],
-		[4, SAMPLE_EVENTS],
-		[5, SAMPLE_EVENTS],
-	];
+	const groupBy = <T, K extends keyof any>(
+		arr: T[],
+		groupFn: (element: T) => K,
+	): Record<K, T[]> =>
+		arr.reduce(
+			(r, v, _i, _a, k = groupFn(v)) => ((r[k] || (r[k] = [])).push(v), r),
+			{} as Record<K, T[]>,
+		);
 
-	const CURRENT_DAY = 3;
+	const CURRENT_DAY = new Date().getDate();
 
-	$: activityCount = DAYS.map(([, activities]) => activities.length).reduce(
-		(a, b) => a + b,
-		0,
-	);
+	onMount(async () => {
+		const resp = await fetch('/data/events.json');
+		json = (await resp.json()) as EventData[];
+	});
+
+	let json: EventData[] = [];
+	$: activityCount = json.length;
 
 	let searchQuery = '';
-
 	$: formattedSearchQuery = searchQuery.trim();
-	$: searchedActivities = formattedSearchQuery
-		? DAYS /* TODO: Filtering Logic */
-		: DAYS;
+	$: filteredJson = formattedSearchQuery
+		? json.filter((e) => e.province.includes(formattedSearchQuery))
+		: json;
+
+	let days: [number, ActivityDetailProps[]][] = [];
+	$: days = Object.entries(groupBy(filteredJson, ({ date }) => date)).map(
+		([date, activities]) => [new Date(date).getDate(), activities],
+	);
 </script>
 
 <div class="flex flex-col gap-[10px] px-4 py-[10px] w-full">
@@ -71,7 +67,7 @@
 		/>
 	</div>
 	<div class="flex flex-col gap-[10px]">
-		{#each searchedActivities as [day, activities] (day)}
+		{#each days as [day, activities] (day)}
 			<ActivityDay
 				{day}
 				{activities}

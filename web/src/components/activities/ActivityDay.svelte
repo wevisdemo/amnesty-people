@@ -30,7 +30,7 @@
 			: ''}"
 	/>
 	<div class="flex flex-col gap-[10px] pt-[10px]">
-		{#each activities as activity}
+		{#each activities as activity (activity.location + activity.name + activity.province)}
 			<ActivityDetail
 				{...activity}
 				{isPassed}
