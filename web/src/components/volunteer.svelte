@@ -78,7 +78,7 @@
 				<span>3.</span>
 				<span
 					>ส่งเอกสารรวบรวมรายชื่อมายังสำนักงาน iLaw <span class="text-[#FF0202]"
-						>ภายในวันที่ xxxx</span
+						>ภายในวันที่ 14 ก.พ. 2567</span
 					></span
 				>
 			</h3>
@@ -99,12 +99,12 @@
 				</li>
 				<li>
 					<span class="body-02-normal mb-[5px] block"
-						>3.2. ส่งไปรษณีย์<br />(ต้องใช้บริการไปรษณีย์ไทยเท่านั้น)</span
+						>3.2. ส่งไปรษณีย์</span
 					>
 					<address
 						class="p-2 body-02-semibold text-center text-balance not-italic bg-base-200"
 					>
-						ออฟฟิศ iLaw<br />1111/3 บ้านกลางเมืองรัชดา-ลาดพร้าว<br />ถ.ลาดพร้าว
+						ออฟฟิศ iLaw 099-678-6031<br />1111/3 บ้านกลางเมืองรัชดา-ลาดพร้าว<br />ถ.ลาดพร้าว
 						แขวงจันทรเกษม เขตจตุจักร<br />กทม. 10900
 					</address>
 				</li>
