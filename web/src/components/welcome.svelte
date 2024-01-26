@@ -17,7 +17,7 @@
 			if (resp.ok) return json as Count;
 			throw new Error(json);
 		})();
-	})
+	});
 </script>
 
 <div
@@ -99,6 +99,12 @@
 			<a href="#event-reasons" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
 			<a href="#volunteer" class="link-01 underline">อาสาล่ารายชื่อ</a>
 		</div>
+		<a
+			href="https://drive.google.com/drive/folders/1eit2XXkNU5RqqLYIpP2nPs2_wv-kqIcQ?fbclid=IwAR0Q1_mymlj1HgMy2XYgfpWA9SwXBEqjvOlg0ZwY3MiP9epQSftdVtg_DAw"
+			target="_blank"
+			rel="nofollow noopener noreferrer"
+			class="link-01 underline w-max mx-auto">เอกสารสำหรับใช้รณรงค์</a
+		>
 		<div class="flex items-center gap-[9px] mt-[4px]">
 			<span class="body-01-normal">แชร์</span>
 			<SocialGroup />
