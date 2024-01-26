@@ -2,7 +2,7 @@ name: Update Live Data
 
 on:
   schedule:
-    - cron: '0,30 * * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 concurrency:
@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  staging:
+  update-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -35,5 +35,5 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: amnesty-people
           directory: ./live-data-fetcher/dist
-          branch: staging-data
+          branch: data
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

@@ -30,7 +30,7 @@ jobs:
         run: cd web && yarn build && cd ..
         env:
           PUBLIC_BUILD_TARGET: staging
-          PUBLIC_DATA_URL: https://staging-data.amnesty-people.pages.dev/data
+          PUBLIC_DATA_URL: https://data.amnesty-people.pages.dev/data
           PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
           PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
       - name: Publish to Cloudflare Pages
@@ -57,6 +57,7 @@ jobs:
         run: cd web && yarn build && cd ..
         env:
           PUBLIC_BUILD_TARGET: production
+          PUBLIC_DATA_URL: https://data.amnesty-people.pages.dev/data
           PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
           PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
       - name: Publish to Cloudflare Pages
