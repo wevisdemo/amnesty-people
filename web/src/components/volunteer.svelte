@@ -13,7 +13,7 @@
 				<span>ลงทะเบียน</span>
 			</h3>
 			<a
-				href="https://docs.google.com/spreadsheets/d/10YoZk7ntGVM-Y81mblfXvGrRrDfyGNBKYlOfBxjHbLE/edit#gid=1983951033"
+				href="https://docs.google.com/forms/d/e/1FAIpQLSeWRIT-xGSJaH0qErptSnBkhs-9A9MfKsxir_qsTjn4FUDLVg/viewform"
 				target="_blank"
 				rel="nofollow noopener noreferrer"
 				class="btn btn-secondary w-full body-03-semibold text-base-100 normal-case"
