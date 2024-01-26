@@ -66,15 +66,17 @@
 		/>
 		ดูกิจกรรมในวันอื่นๆ
 	</a>
-	<a class="btn btn-secondary" href="/parades">
-		<img
-			src="/icons/flag-w.svg"
-			alt=""
-			width="16"
-			height="16"
-			loading="eager"
-			decoding="async"
-		/>
-		ดูกำหนดการเส้นทางรถแห่
-	</a>
+	{#if import.meta.env.PUBLIC_BUILD_TARGET !== 'production'}
+		<a class="btn btn-secondary" href="/parades">
+			<img
+				src="/icons/flag-w.svg"
+				alt=""
+				width="16"
+				height="16"
+				loading="eager"
+				decoding="async"
+			/>
+			ดูกำหนดการเส้นทางรถแห่
+		</a>
+	{/if}
 </div>
