@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { PUBLIC_DATA_URL } from '../utils/data';
 	import SocialGroup from './social-group.svelte';
 
@@ -6,15 +7,17 @@
 		offlineCount: string;
 	}
 
-	const fetchCount = async () => {
-		const resp = await fetch(`${PUBLIC_DATA_URL}/count.json`);
-		const json = await resp.json();
+	let countPromise: Promise<Count> = Promise.resolve({ offlineCount: '0' });
 
-		if (resp.ok) return json as Count;
-		throw new Error(json);
-	};
+	onMount(async () => {
+		countPromise = (async () => {
+			const resp = await fetch(`${PUBLIC_DATA_URL}/count.json`);
+			const json = await resp.json();
 
-	let countPromise = fetchCount();
+			if (resp.ok) return json as Count;
+			throw new Error(json);
+		})();
+	})
 </script>
 
 <div
