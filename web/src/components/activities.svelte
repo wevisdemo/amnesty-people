@@ -15,10 +15,14 @@
 		eventUrl: string;
 	}
 
-	const CURRENT_DAY = new Date().toLocaleDateString('th', {
-		day: 'numeric',
-		month: 'short',
-	});
+	const CURRENT_DAY = (
+			new Date() < new Date('2024-02-01T00:00:00+07:00')
+			? new Date('2024-02-01T00:00:00+07:00') 
+			: new Date()
+		).toLocaleDateString('th', {
+			day: 'numeric',
+			month: 'short',
+		});
 
 	onMount(async () => {
 		const resp = await fetch(`${PUBLIC_DATA_URL}/events.json`);
