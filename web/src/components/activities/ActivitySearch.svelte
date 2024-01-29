@@ -74,7 +74,7 @@
 				{day}
 				{activities}
 				isPassed={dayAsDate < CURRENT_DAY}
-				highlightProvince={formattedSearchQuery}
+				provinceQuery={formattedSearchQuery}
 			/>
 		{:else}
 			<p class="body-02-normal text-center text-balance mt-[20px]">

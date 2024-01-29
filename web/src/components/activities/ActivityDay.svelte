@@ -16,7 +16,7 @@
 	export let activities: ActivityDetailProps[];
 
 	export let isPassed = false;
-	export let highlightProvince = '';
+	export let provinceQuery = '';
 </script>
 
 <AccordionBase sticky open={!isPassed}>
@@ -34,13 +34,7 @@
 	/>
 	<div class="flex flex-col gap-[10px] pt-[10px]">
 		{#each activities as activity (activity.location + activity.name + activity.province)}
-			<ActivityDetail
-				{...activity}
-				{isPassed}
-				highlightProvince={highlightProvince
-					? activity.province?.includes(highlightProvince)
-					: false}
-			/>
+			<ActivityDetail {...activity} {isPassed} {provinceQuery} />
 		{/each}
 	</div>
 </AccordionBase>

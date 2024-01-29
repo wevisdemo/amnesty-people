@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { highlightChar } from '../../utils/highlight';
+
 	export let timeDescription: string;
 	export let name: string;
 	export let location: string;
@@ -10,7 +12,7 @@
 	export let organizedBy = '';
 
 	export let isPassed = false;
-	export let highlightProvince = false;
+	export let provinceQuery = '';
 </script>
 
 <div
@@ -32,8 +34,8 @@
 		{#if province}
 			<div class="flex-1">
 				<strong class="block body-01-semibold">จังหวัด</strong>
-				<p class="w-fit" class:bg-primary-focus={highlightProvince}>
-					{province}
+				<p class="w-fit">
+					{@html highlightChar(province, provinceQuery)}
 				</p>
 			</div>
 		{/if}
