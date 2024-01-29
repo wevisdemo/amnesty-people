@@ -22,7 +22,7 @@
 
 		locationByProvinces = Object.entries(
 			groupBy(json, ({ province }) => province),
-		);
+		).sort(([a], [z]) => a.localeCompare(z));
 	});
 
 	let locationByProvinces: [string, LocationProps[]][] = [];
