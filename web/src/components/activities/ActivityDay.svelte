@@ -37,7 +37,9 @@
 			<ActivityDetail
 				{...activity}
 				{isPassed}
-				highlightProvince={activity.province === highlightProvince}
+				highlightProvince={highlightProvince
+					? activity.province?.includes(highlightProvince)
+					: false}
 			/>
 		{/each}
 	</div>
