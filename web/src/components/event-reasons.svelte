@@ -114,7 +114,7 @@
 	</ul>
 	<a
 		class="btn btn-secondary"
-		href="https://ilaw.or.th/sites/default/files/-%E0%B8%9E.%E0%B8%A8.-.-.pdf"
+		href="/documents/Draft-19Nov.pdf"
 		target="_blank"
 		rel="nofollow noopener noreferrer"
 	>
