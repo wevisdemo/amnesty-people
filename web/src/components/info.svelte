@@ -23,6 +23,7 @@
 		{ name: 'Amnesty', filename: 'amnesty' },
 		{ name: 'เฟมินิสต์ปลดแอก', filename: 'feminist' },
 		{ name: 'พิพิธภัณฑ์สามัญชน', filename: 'mph' },
+		{ name: 'ทำไรท์', filename: 'thumbrights' },
 	];
 </script>
 
