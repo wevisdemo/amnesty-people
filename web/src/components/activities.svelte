@@ -16,13 +16,13 @@
 	}
 
 	const CURRENT_DAY = (
-			new Date() < new Date('2024-02-01T00:00:00+07:00')
-			? new Date('2024-02-01T00:00:00+07:00') 
+		new Date() < new Date('2024-02-01T00:00:00+07:00')
+			? new Date('2024-02-01T00:00:00+07:00')
 			: new Date()
-		).toLocaleDateString('th', {
-			day: 'numeric',
-			month: 'short',
-		});
+	).toLocaleDateString('th', {
+		day: 'numeric',
+		month: 'short',
+	});
 
 	onMount(async () => {
 		const resp = await fetch(`${PUBLIC_DATA_URL}/events.json`);
@@ -33,7 +33,7 @@
 				new Date(event.date).toLocaleDateString('th', {
 					day: 'numeric',
 					month: 'short',
-				}) === CURRENT_DAY,
+				}) === CURRENT_DAY
 		);
 	});
 
@@ -83,4 +83,12 @@
 			ดูกำหนดการเส้นทางรถแห่
 		</a>
 	{/if}
+	<p class="text-center text-balance body-02-normal mt-2">
+		ใครพร้อมเป็นเจ้าภาพจัดกิจกรรม ต้องการวิทยากร อุปกรณ์ ติดต่อทาง <a
+			href="https://m.me/iLawClub"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="underline">iLawClub</a
+		>
+	</p>
 </div>
