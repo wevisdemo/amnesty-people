@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import { createForm } from 'felte';
 	import { reporter, ValidationMessage } from '@felte/reporter-svelte';
-	import { date, flatten, parse, ValiError } from 'valibot';
+	import { flatten, parse, ValiError } from 'valibot';
 	import SignaturePad from 'signature_pad';
 	import { documentSchema } from '@amnesty-people/models';
 	import { submitDocument } from '../utils/firebase';
@@ -20,52 +20,11 @@
 		signaturePad.fromData(signaturePad.toData());
 	});
 
-	let dayOptions = [...Array.from({ length: 31 }, (_, i) => i + 1)];
-
-	let monthOptions = [...Array.from({ length: 12 }, (_, i) => i + 1)];
-
 	let isValid = false;
-
-	let yearOptions = [
-		...Array.from(
-			{ length: 100 },
-			(_, i) => new Date().getFullYear() - i + 543
-		),
-	];
-
-	const thisDate = new Date();
-
-	let dateValue = {
-		day: thisDate.getDate(),
-		month: thisDate.getMonth() + 1,
-		year: thisDate.getFullYear() + 543,
-	};
-
-	const setDateOptions = () => {
-		if (dateValue.month === 2) {
-			if (dateValue.year % 4 === 0) {
-				dayOptions = [...Array.from({ length: 29 }, (_, i) => i + 1)];
-			} else {
-				dayOptions = [...Array.from({ length: 28 }, (_, i) => i + 1)];
-			}
-		} else if ([4, 6, 9, 11].includes(dateValue.month)) {
-			dayOptions = [...Array.from({ length: 30 }, (_, i) => i + 1)];
-		} else {
-			dayOptions = [...Array.from({ length: 31 }, (_, i) => i + 1)];
-		}
-		if (!dayOptions.includes(dateValue.day)) {
-			dateValue.day = dayOptions[dayOptions.length - 1];
-		}
-	};
-
-	$: dateValue, setDateOptions();
 
 	const { form, setTouched, setData, data, reset } = createForm({
 		validate(values) {
 			try {
-				values.day = dateValue.day.toString();
-				values.month = dateValue.month.toString();
-				values.year = dateValue.year.toString();
 				parse(documentSchema, values);
 			} catch (e) {
 				isValid = false;
@@ -77,9 +36,6 @@
 		async onSubmit(values) {
 			isLoading = true;
 			try {
-				values.day = dateValue.day.toString();
-				values.month = dateValue.month.toString();
-				values.year = dateValue.year.toString();
 				await submitDocument(parse(documentSchema, values));
 				isSuccessDialogOpened = true;
 				clearPad();
@@ -128,73 +84,6 @@
 				>
 			</div>
 		</ValidationMessage>
-		<div class="flex flex-row space-x-[10px]">
-			<div class="form-control">
-				<ValidationMessage for="day" let:messages>
-					<label class="label" for="day">
-						<span class="label-text heading-03">วันที่ลงชื่อ*</span>
-					</label>
-					<select
-						class="select rounded-sm max-w-xs bg-base-200 {messages
-							? 'input-error'
-							: ''}"
-						disabled={isLoading}
-						bind:value={dateValue.day}
-						name="day"
-					>
-						{#each dayOptions as day}
-							<option selected={day === thisDate.getDate()}>{day}</option>
-						{/each}
-					</select>
-				</ValidationMessage>
-			</div>
-			<div class="flex flex-row space-x-[10px]">
-				<div class="form-control">
-					<ValidationMessage for="month" let:messages>
-						<label class="label" for="month">
-							<span class="label-text heading-03">เดือน*</span>
-						</label>
-						<select
-							class="select rounded-sm max-w-xs bg-base-200 {messages
-								? 'input-error'
-								: ''}"
-							disabled={isLoading}
-							name="month"
-							bind:value={dateValue.month}
-						>
-							{#each monthOptions as month}
-								<option selected={month === thisDate.getMonth() + 1}
-									>{month}</option
-								>
-							{/each}
-						</select>
-					</ValidationMessage>
-				</div>
-			</div>
-			<div class="flex flex-row space-x-[10px]">
-				<div class="form-control">
-					<ValidationMessage for="year" let:messages>
-						<label class="label" for="year">
-							<span class="label-text heading-03"> ปีพ.ศ.*</span>
-						</label>
-						<select
-							class="select rounded-sm max-w-xs bg-base-200 {messages
-								? 'input-error'
-								: ''}"
-							disabled={isLoading}
-							name="year"
-							bind:value={dateValue.year}
-						>
-							{#each yearOptions as year}
-								<option selected={year === thisDate.getFullYear()}
-									>{year}</option
-								>
-							{/each}
-						</select>
-					</ValidationMessage>
-				</div>
-			</div>
-		</div>
 		<ValidationMessage for="personalid" let:messages>
 			<label class="label" for="personalid">
 				<span class="label-text heading-03">เลขประจำตัวประชาชน*</span>

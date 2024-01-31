@@ -2,7 +2,6 @@ import {
 	object,
 	string,
 	toTrimmed,
-	length,
 	type Output,
 	optional,
 	minLength,
@@ -14,9 +13,6 @@ export const PERSONALID_KEY = 'personalid';
 
 export const documentSchema = object({
 	location: string([toTrimmed(), minLength(1)]),
-	day: string('วันที่ไม่ถูกต้อง', [regex(/([1-9]|[12][0-9]|3[01])/)]),
-	month: string('เดือนไม่ถูกต้อง', [regex(/[1-9]|1[0-2]/)]),
-	year: string('ปีไม่ถูกต้อง', [regex(/^25[3-6][0-9]$/)]),
 	[PERSONALID_KEY]: string([toTrimmed(), validateCitizenID()]),
 	prefix: optional(string()),
 	firstname: string([toTrimmed(), minLength(1), regex(/^[ก-๙]+$/)]),
