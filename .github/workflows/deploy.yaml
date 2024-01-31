@@ -8,6 +8,7 @@ on:
       - 'preprocessor/**'
       - 'pdf-render/**'
       - 'live-data-fetcher/**'
+      - '.github/workflows/update-data.yaml'
   workflow_dispatch:
 
 concurrency:

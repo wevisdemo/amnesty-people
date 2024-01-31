@@ -33,17 +33,9 @@
 		</button>
 	</div>
 	{#if tab === 'online'}
-		{#if import.meta.env.PUBLIC_BUILD_TARGET !== 'production'}
-			<div class="bg-base-100 p-[10px] rounded-[4px]">
-				<SignatureForm />
-			</div>
-		{:else}
-			<p class="text-center">
-				เริ่มเปิดให้ลงชื่อแบบออนไลน์<br />
-				<span class="font-bold">วันที่ 1 ก.พ. นี้</span>
-			</p>
-		{/if}
-	{:else}
+		<div class="bg-base-100 p-[10px] rounded-[4px]">
+			<SignatureForm />
+		</div>
 		<div class="flex flex-col w-full space-y-[12px] body-02-normal">
 			<div class="flex flex-col w-full bg-base-100 p-[16px]">
 				<p class="body-03-semibold">
@@ -112,12 +104,10 @@
 						decoding="async"
 					/>ดูแผนที่</a
 				>
-				<p class="mt-[5px]">
-					3.2. ส่งไปรษณีย์
-				</p>
+				<p class="mt-[5px]">3.2. ส่งไปรษณีย์</p>
 				<div class="bg-base-200 mt-[5px] body-02-semibold p-[8px] text-center">
-					ออฟฟิศ iLaw 099-678-6031<br />1111/3 บ้านกลางเมืองรัชดา-ลาดพร้าว<br />ถ.ลาดพร้าว
-					แขวงจันทรเกษม เขตจตุจักร<br />กทม. 10900
+					ออฟฟิศ iLaw 099-678-6031<br />1111/3 บ้านกลางเมืองรัชดา-ลาดพร้าว<br
+					/>ถ.ลาดพร้าว แขวงจันทรเกษม เขตจตุจักร<br />กทม. 10900
 				</div>
 			</div>
 		</div>

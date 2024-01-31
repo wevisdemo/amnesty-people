@@ -70,19 +70,17 @@
 		/>
 		ดูกิจกรรมในวันอื่นๆ
 	</a>
-	{#if import.meta.env.PUBLIC_BUILD_TARGET !== 'production'}
-		<a class="btn btn-secondary" href="/parades">
-			<img
-				src="/icons/flag-w.svg"
-				alt=""
-				width="16"
-				height="16"
-				loading="eager"
-				decoding="async"
-			/>
-			ดูกำหนดการเส้นทางรถแห่
-		</a>
-	{/if}
+	<a class="btn btn-secondary" href="/parades">
+		<img
+			src="/icons/flag-w.svg"
+			alt=""
+			width="16"
+			height="16"
+			loading="eager"
+			decoding="async"
+		/>
+		ดูกำหนดการเส้นทางรถแห่
+	</a>
 	<p class="text-center text-balance body-02-normal mt-2">
 		ใครพร้อมเป็นเจ้าภาพจัดกิจกรรม ต้องการวิทยากร อุปกรณ์ ติดต่อทาง <a
 			href="https://m.me/iLawClub"

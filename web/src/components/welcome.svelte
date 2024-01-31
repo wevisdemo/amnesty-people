@@ -38,25 +38,23 @@
 		</h1>
 	</div>
 	<div class="flex flex-col items-center gap-[6px] md:gap-[10px]">
-		{#if import.meta.env.PUBLIC_BUILD_TARGET !== 'production'}
-			{#await countPromise}
-				<span class="heading-responsive-02">...</span>
-			{:then { count, updatedAt }}
-				<p
-					class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
-				>
-					<span>ลงชื่อแล้ว</span>
-					<span class="heading-responsive-02">{count}</span>
-				</p>
-				<p class="body-01-normal opacity-50">
-					อัปเดตข้อมูล {new Date(updatedAt).toLocaleDateString('th-TH', {
-						day: 'numeric',
-						month: 'short',
-						year: '2-digit',
-					})}
-				</p>
-			{/await}
-		{/if}
+		{#await countPromise}
+			<span class="heading-responsive-02">...</span>
+		{:then { count, updatedAt }}
+			<p
+				class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
+			>
+				<span>ลงชื่อแล้ว</span>
+				<span class="heading-responsive-02">{count}</span>
+			</p>
+			<p class="body-01-normal opacity-50">
+				อัปเดตข้อมูล {new Date(updatedAt).toLocaleDateString('th-TH', {
+					day: 'numeric',
+					month: 'short',
+					year: '2-digit',
+				})}
+			</p>
+		{/await}
 		<p class="body-02-normal text-balance">
 			มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง
 		</p>
