@@ -2,9 +2,12 @@
 	import { onMount } from 'svelte';
 	import { PUBLIC_DATA_URL } from '../utils/data';
 	import SocialGroup from './social-group.svelte';
-	import { countSubmittedDocuments } from '../utils/firebase';
+	import type { Count } from '@amnesty-people/models';
 
-	let countPromise: Promise<number> = Promise.resolve(0);
+	let countPromise: Promise<Count> = Promise.resolve({
+		count: '',
+		updatedAt: '',
+	});
 
 	onMount(() => {
 		countPromise = new Promise(async (resolve, reject) => {
@@ -12,10 +15,7 @@
 
 			if (!resp.ok) reject(resp.statusText);
 
-			const { offlineCount } = await resp.json();
-			const onlineCount = await countSubmittedDocuments();
-
-			resolve(+offlineCount + onlineCount);
+			resolve(await resp.json());
 		});
 	});
 </script>
@@ -39,23 +39,23 @@
 	</div>
 	<div class="flex flex-col items-center gap-[6px] md:gap-[10px]">
 		{#if import.meta.env.PUBLIC_BUILD_TARGET !== 'production'}
-			<p
-				class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
-			>
-				<span>ลงชื่อแล้ว</span>
-				{#await countPromise}
-					<span class="heading-responsive-02">...</span>
-				{:then count}
+			{#await countPromise}
+				<span class="heading-responsive-02">...</span>
+			{:then { count, updatedAt }}
+				<p
+					class="flex items-center justify-center gap-[6px] rounded-full bg-secondary text-neutral-50 body-02-semibold w-full whitespace-nowrap md:px-[35px]"
+				>
+					<span>ลงชื่อแล้ว</span>
 					<span class="heading-responsive-02">{count}</span>
-				{/await}
-			</p>
-			<p class="body-01-normal opacity-50">
-				อัปเดตข้อมูล {new Date().toLocaleDateString('th-TH', {
-					day: 'numeric',
-					month: 'short',
-					year: '2-digit',
-				})}
-			</p>
+				</p>
+				<p class="body-01-normal opacity-50">
+					อัปเดตข้อมูล {new Date(updatedAt).toLocaleDateString('th-TH', {
+						day: 'numeric',
+						month: 'short',
+						year: '2-digit',
+					})}
+				</p>
+			{/await}
 		{/if}
 		<p class="body-02-normal text-balance">
 			มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง

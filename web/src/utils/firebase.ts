@@ -14,15 +14,10 @@ import {
 	writeBatch,
 	doc,
 	query,
-	where,
 	getCountFromServer,
 } from 'firebase/firestore';
 import { parse } from 'valibot';
-import {
-	firebaseConfigSchema,
-	PERSONALID_KEY,
-	type Document,
-} from '@amnesty-people/models';
+import { firebaseConfigSchema, type Document } from '@amnesty-people/models';
 import {
 	FIRESTORE_DOCUMENT_COLLECTION,
 	FIRESTORE_USER_COLLECTION,
@@ -30,7 +25,11 @@ import {
 
 const firebaseConfig = parse(
 	firebaseConfigSchema,
-	JSON.parse(import.meta.env.PUBLIC_FIREBASE_CONFIG || '{}'),
+	JSON.parse(
+		import.meta.env?.PUBLIC_FIREBASE_CONFIG ||
+			process.env.PUBLIC_FIREBASE_CONFIG ||
+			'{}',
+	),
 );
 
 const app = initializeApp(firebaseConfig);
@@ -71,7 +70,9 @@ export const submitDocument = async (document: Document) => {
 export const countSubmittedDocuments = async (): Promise<number> => {
 	try {
 		const [email, password] = (
-			import.meta.env.PUBLIC_FIREBASE_ADMIN ?? ','
+			import.meta.env?.PUBLIC_FIREBASE_ADMIN ||
+			process.env.PUBLIC_FIREBASE_ADMIN ||
+			','
 		).split(',');
 
 		await signInWithEmailAndPassword(auth, email, password);

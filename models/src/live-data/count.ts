@@ -1,3 +1,4 @@
 export interface Count {
-	offlineCount: number;
+	count: string;
+	updatedAt: string;
 }
