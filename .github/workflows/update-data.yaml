@@ -28,6 +28,8 @@ jobs:
           EVENT_CSV_URL: ${{ vars.EVENT_CSV_URL }}
           LE_TRUCK_CSV_URL: ${{ vars.LE_TRUCK_CSV_URL }}
           OFFLINE_COUNT_CSV_URL: ${{ vars.OFFLINE_COUNT_CSV_URL }}
+          PUBLIC_FIREBASE_CONFIG: ${{ secrets.PUBLIC_FIREBASE_CONFIG }}
+          PUBLIC_FIREBASE_ADMIN: ${{ secrets.PUBLIC_FIREBASE_ADMIN }}
       - name: Update live data to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
