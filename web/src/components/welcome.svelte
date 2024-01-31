@@ -2,21 +2,21 @@
 	import { onMount } from 'svelte';
 	import { PUBLIC_DATA_URL } from '../utils/data';
 	import SocialGroup from './social-group.svelte';
+	import { countSubmittedDocuments } from '../utils/firebase';
 
-	interface Count {
-		offlineCount: string;
-	}
+	let countPromise: Promise<number> = Promise.resolve(0);
 
-	let countPromise: Promise<Count> = Promise.resolve({ offlineCount: '0' });
-
-	onMount(async () => {
-		countPromise = (async () => {
+	onMount(() => {
+		countPromise = new Promise(async (resolve, reject) => {
 			const resp = await fetch(`${PUBLIC_DATA_URL}/count.json`);
-			const json = await resp.json();
 
-			if (resp.ok) return json as Count;
-			throw new Error(json);
-		})();
+			if (!resp.ok) reject(resp.statusText);
+
+			const { offlineCount } = await resp.json();
+			const onlineCount = await countSubmittedDocuments();
+
+			resolve(+offlineCount + onlineCount);
+		});
 	});
 </script>
 
@@ -45,8 +45,8 @@
 				<span>ลงชื่อแล้ว</span>
 				{#await countPromise}
 					<span class="heading-responsive-02">...</span>
-				{:then data}
-					<span class="heading-responsive-02">{data.offlineCount}</span>
+				{:then count}
+					<span class="heading-responsive-02">{count}</span>
 				{/await}
 			</p>
 			<p class="body-01-normal opacity-50">
