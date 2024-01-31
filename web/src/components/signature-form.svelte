@@ -29,7 +29,7 @@
 	let yearOptions = [
 		...Array.from(
 			{ length: 100 },
-			(_, i) => new Date().getFullYear() - i + 543,
+			(_, i) => new Date().getFullYear() - i + 543
 		),
 	];
 
@@ -355,7 +355,7 @@
 					class="checkbox checkbox-neutral"
 				/>
 				<a
-					href="https://drive.google.com/file/d/1r8MtAdoqSPW37I4aQrgID5U1cFHqy-R2/view"
+					href="https://docs.google.com/document/d/1b2803XgdvJjTCVXwgAAp2DOVUSCBCwm9KXWVwr8W-gI/edit?usp=sharing"
 					target="_blank"
 					class=" label-text underline"
 					>ข้าพเจ้ายินยอมลงชื่อเสนอกฎหมาย อ่านนโยบายการคุ้มครองข้อมูลส่วนบุคคล</a
