@@ -26,7 +26,6 @@ import {
 import {
 	FIRESTORE_DOCUMENT_COLLECTION,
 	FIRESTORE_USER_COLLECTION,
-	IGNORED_PERSONALID,
 } from '@amnesty-people/constants';
 
 const firebaseConfig = parse(
@@ -77,10 +76,7 @@ export const countSubmittedDocuments = async (): Promise<number> => {
 
 		await signInWithEmailAndPassword(auth, email, password);
 
-		const q = query(
-			collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
-			where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
-		);
+		const q = query(collection(firestore, FIRESTORE_DOCUMENT_COLLECTION));
 
 		const snapshot = await getCountFromServer(q);
 

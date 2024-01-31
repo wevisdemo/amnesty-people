@@ -13,10 +13,7 @@ import {
 } from 'firebase/firestore';
 import { parse } from 'valibot';
 import { firebaseConfigSchema, PERSONALID_KEY } from '@amnesty-people/models';
-import {
-	FIRESTORE_DOCUMENT_COLLECTION,
-	IGNORED_PERSONALID,
-} from '@amnesty-people/constants';
+import { FIRESTORE_DOCUMENT_COLLECTION } from '@amnesty-people/constants';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
 const OUTPUT_DIR = 'out';
@@ -54,7 +51,6 @@ const auth = getAuth();
 		const res = await getDocs(
 			query(
 				collection(firestore, FIRESTORE_DOCUMENT_COLLECTION),
-				where(PERSONALID_KEY, '!=', IGNORED_PERSONALID),
 				orderBy(PERSONALID_KEY),
 				limit(PAGE_LIMIT),
 				...(lastPersonalid ? [startAfter(lastPersonalid)] : []),
