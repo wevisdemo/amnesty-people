@@ -28,9 +28,11 @@ import Activities from '../components/activities.svelte';
 	};
 
 	const welcome = document.getElementById('welcome');
-	if (welcome) {
+	const petition = document.getElementById('petition');
+	if (welcome && petition) {
 		const observer = new IntersectionObserver(handleIntersection);
 		observer.observe(welcome);
+		observer.observe(petition);
 	}
 </script>
 <Main>
