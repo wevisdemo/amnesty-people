@@ -36,6 +36,7 @@
 		<div class="bg-base-100 p-[10px] rounded-[4px]">
 			<SignatureForm />
 		</div>
+	{:else}
 		<div class="flex flex-col w-full space-y-[12px] body-02-normal">
 			<div class="flex flex-col w-full bg-base-100 p-[16px]">
 				<p class="body-03-semibold">
