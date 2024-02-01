@@ -79,7 +79,7 @@
 			loading="eager"
 			decoding="async"
 		/>
-		ดูกำหนดการเส้นทางรถแห่
+		ดูกำหนดการเส้นทางรถ Le Truck
 	</a>
 	<p class="text-center text-balance body-02-normal mt-2">
 		ใครพร้อมเป็นเจ้าภาพจัดกิจกรรม ต้องการวิทยากร อุปกรณ์ ติดต่อทาง <a

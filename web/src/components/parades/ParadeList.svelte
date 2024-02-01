@@ -38,7 +38,7 @@
 
 <div class="flex flex-col gap-[10px] px-4 py-[10px] w-full">
 	<h1 class="heading-responsive-01 text-balance leading-none text-center">
-		กำหนดการเส้นทางรถแห่ ตลอด 14 วัน
+		กำหนดการเส้นทางรถ Le Truck ตลอด 14 วัน
 	</h1>
 	<div class="flex flex-col gap-[10px]">
 		{#each days as [day, activities] (day)}
