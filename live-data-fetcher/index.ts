@@ -58,6 +58,7 @@ async function fetchFiles() {
 		`${OUTPUT_PATH}/online-petition.html`,
 		`count: ${await countSubmittedDocuments()}<br/>updated at ${new Date().toLocaleString(
 			'TH-th',
+			{ timeZone: 'Asia/Bangkok' },
 		)}`,
 	);
 
