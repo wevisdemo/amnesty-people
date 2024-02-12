@@ -27,7 +27,7 @@
 
 	const ONE_DAY = 86400000;
 	const ONE_MILLISEC = 1;
-	const CURRENT_DAY = new Date().getDate() - ONE_DAY - ONE_MILLISEC;
+	const CURRENT_DAY = Date.now() - ONE_DAY - ONE_MILLISEC;
 
 	onMount(async () => {
 		const resp = await fetch(`${PUBLIC_DATA_URL}/events.json`);
