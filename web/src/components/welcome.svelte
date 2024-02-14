@@ -3,13 +3,18 @@
 	import { PUBLIC_DATA_URL } from '../utils/data';
 	import SocialGroup from './social-group.svelte';
 	import type { Count } from '@amnesty-people/models';
+	import { checkCampaignEnded } from '../utils/schedule';
 
 	let countPromise: Promise<Count> = Promise.resolve({
 		count: '',
 		updatedAt: '',
 	});
 
+	let isCompaignEnded: boolean | null = null;
+
 	onMount(() => {
+		isCompaignEnded = checkCampaignEnded();
+
 		countPromise = new Promise(async (resolve, reject) => {
 			const resp = await fetch(`${PUBLIC_DATA_URL}/count.json`);
 
@@ -58,41 +63,65 @@
 		<p class="body-02-normal text-balance">
 			มาช่วยกันยุติการดำเนินคดีต่อประชาชนที่แสดงออกทางการเมือง
 		</p>
-		<div class="flex flex-col gap-[6px] w-[220px] mt-[4px]">
-			<a href="#petition" class="btn btn-secondary w-full body-02-semibold">
-				<img
-					src="/icons/pen.svg"
-					alt=""
-					width="16"
-					height="16"
-					loading="eager"
-					decoding="async"
-				/>
-				ลงชื่อ
-			</a>
-			<a href="/locations" class="btn btn-primary w-full body-02-semibold">
-				<img
-					src="/icons/pin.svg"
-					alt=""
-					width="16"
-					height="16"
-					loading="eager"
-					decoding="async"
-				/>
-				ดูสถานที่ลงชื่อ
-			</a>
-			<a href="#activities" class="btn btn-primary w-full body-02-semibold">
-				<img
-					src="/icons/table.svg"
-					alt=""
-					width="16"
-					height="16"
-					loading="eager"
-					decoding="async"
-				/>
-				ตารางกิจกรรม
-			</a>
-		</div>
+		{#if isCompaignEnded !== null}
+			<div class="relative flex flex-col gap-[6px] w-[220px] mt-[4px]">
+				{#if isCompaignEnded}
+					<p
+						class="absolute top-1/2 left-1/2 body-03-semibold -translate-x-1/2 -translate-y-1/2 -rotate-12 whitespace-nowrap"
+					>
+						ปิดรับลงชื่อแล้ว
+					</p>
+				{/if}
+				<a
+					href="#petition"
+					class="btn btn-secondary w-full body-02-semibold {isCompaignEnded
+						? 'opacity-50 btn-disabled'
+						: ''}"
+				>
+					<img
+						src="/icons/pen.svg"
+						alt=""
+						width="16"
+						height="16"
+						loading="eager"
+						decoding="async"
+					/>
+					ลงชื่อ
+				</a>
+				<a
+					href="/locations"
+					class="btn btn-primary w-full body-02-semibold {isCompaignEnded
+						? 'opacity-50 btn-disabled'
+						: ''}"
+				>
+					<img
+						src="/icons/pin.svg"
+						alt=""
+						width="16"
+						height="16"
+						loading="eager"
+						decoding="async"
+					/>
+					ดูสถานที่ลงชื่อ
+				</a>
+				<a
+					href="#activities"
+					class="btn btn-primary w-full body-02-semibold {isCompaignEnded
+						? 'opacity-50 btn-disabled'
+						: ''}"
+				>
+					<img
+						src="/icons/table.svg"
+						alt=""
+						width="16"
+						height="16"
+						loading="eager"
+						decoding="async"
+					/>
+					ตารางกิจกรรม
+				</a>
+			</div>
+		{/if}
 		<div class="flex gap-[6px] mt-[4px]">
 			<a href="#event-reasons" class="link-01 underline">ทำไมต้องล่ารายชื่อ</a>
 			<a href="#volunteer" class="link-01 underline">อาสาล่ารายชื่อ</a>

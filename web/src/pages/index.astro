@@ -2,11 +2,9 @@
 import Main from '../layouts/main.astro';
 import EventReason from '../components/event-reasons.svelte';
 import Welcome from '../components/welcome.svelte';
-import Petition from '../components/petition.svelte';
+import OngoingCampaignSections from '../components/ongoing-campaign-sections.svelte';
 import Navbar from '../components/navbar.svelte';
 import Info from '../components/info.svelte';
-import Volunteer from '../components/volunteer.svelte';
-import Activities from '../components/activities.svelte';
 ---
 
 <script>
@@ -41,31 +39,18 @@ import Activities from '../components/activities.svelte';
 			id="welcome"
 			class="flex items-center justify-center h-screen bg-[url(/bg.png)] bg-cover bg-center"
 		>
-			<Welcome client:idle />
+			<Welcome client:load />
 		</section>
 
 		<section id="nav" class="fixed visible max-h-[80px] opacity-100 flex justify-center bg-primary p-0 left-0 right-0 bottom-0 z-50 transition-all duration-300 ease-out">
-			<Navbar />
+			<Navbar client:idle />
 		</section>
 
 		<section id="event-reasons" class="flex justify-center bg-primary-focus">
 			<EventReason />
 		</section>
 
-		<section id="activities" class="flex justify-center">
-			<Activities client:idle />
-		</section>
-
-		<section
-			id="petition"
-			class="flex justify-center bg-primary-focus"
-		>
-			<Petition client:load />
-		</section>
-
-		<section id="volunteer" class="flex justify-center">
-			<Volunteer />
-		</section>
+		<OngoingCampaignSections client:load />
 
 		<section id="about-me" class="flex justify-center bg-base-200">
 			<Info />
