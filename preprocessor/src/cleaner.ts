@@ -8,15 +8,8 @@ interface Record extends Document {
 }
 
 const OUTPUT_DIR = 'out';
-const WITH_SIGNATURE_MAX_ROW = 10000;
-const baseSelectedColumns = [
-	PERSONALID_KEY,
-	'name',
-	'location',
-	'date',
-	'email',
-	'phone',
-];
+const WITH_SIGNATURE_MAX_ROW = 5000;
+const baseSelectedColumns = [PERSONALID_KEY, 'name', 'location', 'date'];
 
 const documents = readdirSync(OUTPUT_DIR)
 	.filter((path) => path.endsWith('.json'))
@@ -32,7 +25,7 @@ const cleanData = aq
 	.filter(
 		aq.escape(
 			(d: Record) =>
-				d.firstname.length > 3 &&
+				d.firstname.length > 1 &&
 				d.lastname.length > 1 &&
 				d[PERSONALID_KEY].split('').every((digit) => !isNaN(+digit)) &&
 				validatePersonalId(d[PERSONALID_KEY]),
@@ -47,14 +40,12 @@ const cleanData = aq
 		date: aq.escape((d: Record) =>
 			new Date(d.timestamp.seconds * 1000).toLocaleDateString('TH-th'),
 		),
-		email: (d: Record) => aq.op.replace(d.email, '-', ''),
-		phone: (d: Record) => aq.op.replace(d.phone, '-', ''),
 	})
 	.dedupe(PERSONALID_KEY, 'name')
 	.reify();
 
 writeFileSync(
-	`${OUTPUT_DIR}/pension-act-cleaned.csv`,
+	`${OUTPUT_DIR}/amnestypeople-cleaned.csv`,
 	cleanData
 		.select(...baseSelectedColumns)
 		.print()
@@ -63,7 +54,7 @@ writeFileSync(
 
 for (let i = 0; i * WITH_SIGNATURE_MAX_ROW < cleanData.size; i++) {
 	writeFileSync(
-		`${OUTPUT_DIR}/pension-act-cleaned-signature-${i + 1}.csv`,
+		`${OUTPUT_DIR}/amnestypeople-cleaned-signature-${i + 1}.csv`,
 		cleanData
 			.slice(i * WITH_SIGNATURE_MAX_ROW, (i + 1) * WITH_SIGNATURE_MAX_ROW)
 			.select(...baseSelectedColumns, 'signature')

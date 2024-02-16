@@ -9,10 +9,10 @@
 		"firebase": "^10.2.0"
 	},
 	"scripts": {
-		"fetch": "ts-node src/fetcher.ts",
-		"clean": "ts-node src/cleaner.ts"
+		"fetch": "tsx src/fetcher.ts",
+		"clean": "tsx src/cleaner.ts"
 	},
 	"devDependencies": {
-		"ts-node": "^10.9.1"
+		"tsx": "^4.7.1"
 	}
 }

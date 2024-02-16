@@ -5,7 +5,6 @@ import {
 	getFirestore,
 	collection,
 	query,
-	where,
 	getDocs,
 	limit,
 	orderBy,
