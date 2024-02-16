@@ -10,18 +10,18 @@ const LINE_HEIGHT = 14;
 const CITIZEN_ID_FONT_SIZE = 22;
 const CITIZEN_ID_LINE_HEIGHT = 30;
 
-const LOCATION_POSITION: FillingBox = { x: 375, y: 668, maxWidth: 160 };
-const DAY_POSITION: FillingBox = { x: 317, y: 647 };
-const MONTH_POSITION: FillingBox = { x: 376, y: 647, maxWidth: 83 };
-const YEAR_POSITION: FillingBox = { x: 496, y: 647 };
+const LOCATION_POSITION: FillingBox = { x: 375, y: 591, maxWidth: 160 };
+const DAY_POSITION: FillingBox = { x: 317, y: 570 };
+const MONTH_POSITION: FillingBox = { x: 376, y: 570, maxWidth: 83 };
+const YEAR_POSITION: FillingBox = { x: 496, y: 570 };
 
-const NAME_POSITION: FillingBox = { x: 229, y: 594, maxWidth: 290 };
-const CITIZEN_ID_POSITION: FillingBox = { x: 223, y: 540 };
+const NAME_POSITION: FillingBox = { x: 229, y: 514, maxWidth: 290 };
+const CITIZEN_ID_POSITION: FillingBox = { x: 223, y: 462 };
 const CITIZEN_ID_DASH_WIDTH = 6.5;
 const CITIZEN_ID_DIGIT_WIDTH = 22;
 
-const SIGNATURE_POSITION: FillingBox = { x: 325, y: 390 };
-const SIGNATURE_NAME_POSITION: FillingBox = { x: 318, y: 374, maxWidth: 120 };
+const SIGNATURE_POSITION: FillingBox = { x: 325, y: 303 };
+const SIGNATURE_NAME_POSITION: FillingBox = { x: 318, y: 293, maxWidth: 120 };
 
 const MONTHS = [
 	'มกราคม',
